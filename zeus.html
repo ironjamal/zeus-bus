@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Zeus Bus</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --red:#c1121f;
+      --dark-red:#8f0d16;
+      --black:#0d0d0d;
+      --white:#ffffff;
+      --gray:#f5f5f5;
+      --border:#e5e5e5;
+    }
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Outfit',sans-serif;
+    }
+
+    body{
+      background:var(--white);
+      color:var(--black);
+    }
+
+    nav{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:20px 6%;
+      border-bottom:1px solid var(--border);
+      background:var(--white);
+    }
+
+    .logo{
+      font-size:1.4rem;
+      font-weight:900;
+      color:var(--red);
+      letter-spacing:1px;
+    }
+
+    .nav-btn{
+      text-decoration:none;
+      color:var(--white);
+      background:var(--red);
+      padding:10px 18px;
+      border-radius:8px;
+      font-weight:600;
+      transition:0.2s;
+    }
+
+    .nav-btn:hover{
+      background:var(--dark-red);
+    }
+
+    .hero{
+      background:var(--red);
+      color:var(--white);
+      text-align:center;
+      padding:110px 6%;
+    }
+
+    .badge{
+      display:inline-block;
+      padding:6px 14px;
+      border:1px solid rgba(255,255,255,0.3);
+      border-radius:30px;
+      margin-bottom:20px;
+      font-size:0.85rem;
+      font-weight:600;
+      letter-spacing:1px;
+    }
+
+    .hero h1{
+      font-size:clamp(2.5rem,6vw,4.5rem);
+      font-weight:900;
+      line-height:1;
+      margin-bottom:20px;
+    }
+
+    .hero p{
+      max-width:650px;
+      margin:auto;
+      font-size:1.1rem;
+      font-weight:300;
+      opacity:0.9;
+      margin-bottom:35px;
+    }
+
+    .buttons{
+      display:flex;
+      justify-content:center;
+      gap:14px;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      text-decoration:none;
+      padding:14px 26px;
+      border-radius:8px;
+      font-weight:700;
+      transition:0.2s;
+    }
+
+    .btn-dark{
+      background:var(--black);
+      color:var(--white);
+    }
+
+    .btn-light{
+      background:var(--white);
+      color:var(--red);
+    }
+
+    .btn:hover{
+      opacity:0.9;
+    }
+
+    .features{
+      padding:80px 6%;
+      background:var(--gray);
+    }
+
+    .section-title{
+      text-align:center;
+      font-size:2.2rem;
+      font-weight:900;
+      margin-bottom:50px;
+      color:var(--red);
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:20px;
+      max-width:1100px;
+      margin:auto;
+    }
+
+    .card{
+      background:var(--white);
+      border:1px solid var(--border);
+      padding:30px;
+      border-radius:14px;
+      transition:0.2s;
+    }
+
+    .card:hover{
+      border-color:var(--red);
+    }
+
+    .card h3{
+      margin-bottom:10px;
+      font-size:1.1rem;
+      color:var(--red);
+      font-weight:700;
+    }
+
+    .card p{
+      color:#555;
+      line-height:1.7;
+      font-size:0.95rem;
+    }
+
+    .social{
+      padding:90px 6%;
+      background:var(--black);
+      text-align:center;
+      color:var(--white);
+    }
+
+    .social h2{
+      font-size:2.2rem;
+      margin-bottom:15px;
+      font-weight:900;
+    }
+
+    .social p{
+      max-width:600px;
+      margin:auto;
+      opacity:0.8;
+      margin-bottom:35px;
+    }
+
+    .social-buttons{
+      display:flex;
+      justify-content:center;
+      gap:14px;
+      flex-wrap:wrap;
+    }
+
+    .social-buttons a{
+      text-decoration:none;
+      background:var(--red);
+      color:var(--white);
+      padding:14px 24px;
+      border-radius:8px;
+      font-weight:700;
+      transition:0.2s;
+    }
+
+    .social-buttons a:hover{
+      background:var(--dark-red);
+    }
+
+    footer{
+      text-align:center;
+      padding:25px;
+      border-top:1px solid #222;
+      background:var(--black);
+      color:#888;
+      font-size:0.9rem;
+    }
+
+    @media(max-width:768px){
+
+      .hero{
+        padding:90px 6%;
+      }
+
+      .buttons,
+      .social-buttons{
+        flex-direction:column;
+      }
+
+      .btn,
+      .social-buttons a{
+        width:100%;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <div class="logo">ZEUS BUS</div>
+    <a href="https://wa.me/201003246428?text=Reservation%20request%20Zeus%20Bus" class="nav-btn" target="_blank">
+  Reserve Now
+</a>
+  </nav>
+
+  <section class="hero">
+
+    <div class="badge">ASSIUT — BUA</div>
+
+    <h1>Smart University Transportation</h1>
+
+    <p>
+      Safe, organized, and comfortable daily rides for university students in Assiut.
+    </p>
+
+    <div class="buttons">
+<a href="tel:01003246428" class="btn btn-dark">
+  Reserve Your Seat
+</a>
+      <a href="https://chat.whatsapp.com/BAY5HfLAJz6E9TmXSz7i6E" class="btn btn-light" target="_blank">
+  Join WhatsApp Group
+</a>
+    </div>
+
+  </section>
+
+  <section class="features">
+
+    <h2 class="section-title">Why Students Choose Us</h2>
+
+    <div class="grid">
+
+      <div class="card">
+        <h3>Fixed Schedules</h3>
+        <p>
+          Organized pickup points and reliable daily timing.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Comfortable Buses</h3>
+        <p>
+          Clean rides with a smooth transportation experience.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Student Environment</h3>
+        <p>
+          Transportation designed specifically for university students.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Fast Support</h3>
+        <p>
+          Quick communication through WhatsApp and social media.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <section class="social">
+
+  <h2>Follow Zeus Bus</h2>
+
+  <p>
+    Stay updated with routes, schedules, announcements, and student updates.
+  </p>
+
+  <div class="social-buttons">
+
+    <a href="https://www.instagram.com/zeus.bus?igsh=dm9jenhndGFpdGQz" target="_blank">
+      Instagram
+    </a>
+
+    <a href="https://vm.tiktok.com/ZS9N751Kc84ok-0wCuR/" target="_blank">
+      TikTok
+    </a>
+
+    <a href="https://www.facebook.com/share/18EAcwCmEM/" target="_blank">
+      Facebook
+    </a>
+
+  </div>
+
+</section>
+  <footer>
+    © 2026 Zeus Bus. All Rights Reserved.
+  </footer>
+
+</body>
+</html>
