@@ -1,339 +1,826 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
+
   <meta charset="UTF-8" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Zeus Bus</title>
+
+  <title>Zeus Bus - Smart University Transportation</title>
+
+
+
+  <!-- Google Font: Outfit -->
 
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;900&display=swap" rel="stylesheet">
 
+ <link rel="icon" type="image/png" href="logo.png">
+
   <style>
+
     :root{
-      --red:#c1121f;
+
+      /* Colors derived from branding image_0.png */
+
+      --red:#c1121f; 
+
       --dark-red:#8f0d16;
+
       --black:#0d0d0d;
+
       --white:#ffffff;
+
       --gray:#f5f5f5;
+
       --border:#e5e5e5;
+
     }
+
+
 
     *{
+
       margin:0;
+
       padding:0;
+
       box-sizing:border-box;
+
       font-family:'Outfit',sans-serif;
+
     }
+
+
 
     body{
+
       background:var(--white);
+
       color:var(--black);
+
     }
+
+
+
+    /* --- Navigation --- */
 
     nav{
+
       display:flex;
+
       justify-content:space-between;
+
       align-items:center;
-      padding:20px 6%;
+
+      padding:15px 6%;
+
       border-bottom:1px solid var(--border);
+
       background:var(--white);
+
+      position: sticky;
+
+      top: 0;
+
+      z-index: 1000;
+
     }
 
-    .logo{
-      font-size:1.4rem;
-      font-weight:900;
-      color:var(--red);
-      letter-spacing:1px;
+
+
+    .logo-container {
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 10px;
+
+      text-decoration: none;
+
     }
+
+
+
+    /* Graphic Logo referencing the visual theme of image_0.png */
+
+    .logo-icon {
+
+      width: 40px;
+
+      height: 40px;
+
+      background-color: var(--black);
+
+      border-radius: 8px;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      position: relative;
+
+      overflow: hidden;
+
+    }
+
+
+
+    /* Simple lightning/bus shape representation inside the logo box */
+
+    .logo-icon::before {
+
+      content: '';
+
+      position: absolute;
+
+      width: 70%;
+
+      height: 70%;
+
+      background: var(--white);
+
+      clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%, 30% 50%); /* Abstract bus/lightning combo */
+
+    }
+
+
+
+    .logo-text {
+
+      font-size:1.4rem;
+
+      font-weight:900;
+
+      color:var(--red);
+
+      letter-spacing:1px;
+
+    }
+
+
 
     .nav-btn{
+
       text-decoration:none;
+
       color:var(--white);
+
       background:var(--red);
+
       padding:10px 18px;
+
       border-radius:8px;
+
       font-weight:600;
+
       transition:0.2s;
+
     }
+
+
 
     .nav-btn:hover{
+
       background:var(--dark-red);
+
     }
+
+
+
+    /* --- Hero Section --- */
 
     .hero{
+
       background:var(--red);
+
       color:var(--white);
+
       text-align:center;
+
       padding:110px 6%;
+
     }
+
+
 
     .badge{
+
       display:inline-block;
+
       padding:6px 14px;
+
       border:1px solid rgba(255,255,255,0.3);
+
       border-radius:30px;
+
       margin-bottom:20px;
+
       font-size:0.85rem;
+
       font-weight:600;
+
       letter-spacing:1px;
+
     }
+
+
 
     .hero h1{
+
       font-size:clamp(2.5rem,6vw,4.5rem);
+
       font-weight:900;
+
       line-height:1;
+
       margin-bottom:20px;
+
     }
+
+
 
     .hero p{
+
       max-width:650px;
+
       margin:auto;
+
       font-size:1.1rem;
+
       font-weight:300;
+
       opacity:0.9;
+
       margin-bottom:35px;
+
     }
+
+
 
     .buttons{
+
       display:flex;
+
       justify-content:center;
+
       gap:14px;
+
       flex-wrap:wrap;
+
     }
+
+
 
     .btn{
+
       text-decoration:none;
+
       padding:14px 26px;
+
       border-radius:8px;
+
       font-weight:700;
+
       transition:0.2s;
+
     }
+
+
 
     .btn-dark{
+
       background:var(--black);
+
       color:var(--white);
+
     }
+
+
 
     .btn-light{
+
       background:var(--white);
+
       color:var(--red);
+
     }
+
+
 
     .btn:hover{
+
       opacity:0.9;
+
     }
+
+
+
+    /* --- Features Section --- */
 
     .features{
+
       padding:80px 6%;
+
       background:var(--gray);
+
     }
+
+
 
     .section-title{
+
       text-align:center;
+
       font-size:2.2rem;
+
       font-weight:900;
+
       margin-bottom:50px;
+
       color:var(--red);
+
     }
+
+
 
     .grid{
+
       display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-      gap:20px;
-      max-width:1100px;
+
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+
+      gap:25px;
+
+      max-width:1200px;
+
       margin:auto;
+
     }
+
+
 
     .card{
+
       background:var(--white);
+
       border:1px solid var(--border);
-      padding:30px;
+
+      padding:35px;
+
       border-radius:14px;
-      transition:0.2s;
+
+      transition:0.3s;
+
+      display: flex;
+
+      flex-direction: column;
+
+      justify-content: space-between;
+
     }
+
+
 
     .card:hover{
+
       border-color:var(--red);
+
+      transform: translateY(-5px);
+
+      box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+
     }
+
+
 
     .card h3{
-      margin-bottom:10px;
-      font-size:1.1rem;
+
+      margin-bottom:15px;
+
+      font-size:1.2rem;
+
       color:var(--red);
+
       font-weight:700;
+
     }
+
+
 
     .card p{
+
       color:#555;
+
       line-height:1.7;
+
       font-size:0.95rem;
+
     }
+
+
+
+    /* --- Social Section (Updated) --- */
 
     .social{
+
       padding:90px 6%;
+
       background:var(--black);
+
       text-align:center;
+
       color:var(--white);
+
     }
+
+
 
     .social h2{
+
       font-size:2.2rem;
+
       margin-bottom:15px;
+
       font-weight:900;
+
     }
+
+
 
     .social p{
+
       max-width:600px;
+
       margin:auto;
+
       opacity:0.8;
+
       margin-bottom:35px;
+
     }
+
+
 
     .social-buttons{
+
       display:flex;
+
       justify-content:center;
-      gap:14px;
+
+      gap:20px;
+
       flex-wrap:wrap;
+
     }
 
-    .social-buttons a{
+
+
+    .social-icon-btn{
+
       text-decoration:none;
+
       background:var(--red);
+
       color:var(--white);
-      padding:14px 24px;
-      border-radius:8px;
-      font-weight:700;
-      transition:0.2s;
+
+      width: 60px;
+
+      height: 60px;
+
+      border-radius:50%; /* Circular buttons */
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      transition: 0.3s;
+
+      border: 2px solid transparent;
+
     }
 
-    .social-buttons a:hover{
+
+
+    .social-icon-btn:hover{
+
       background:var(--dark-red);
+
+      transform: scale(1.1);
+
+      border-color: var(--white);
+
     }
+
+
+
+    /* Simple SVG Icons (using inline SVG for compatibility) */
+
+    .icon {
+
+      width: 28px;
+
+      height: 28px;
+
+      fill: var(--white);
+
+    }
+
+
+
+    /* --- Footer --- */
 
     footer{
+
       text-align:center;
+
       padding:25px;
+
       border-top:1px solid #222;
+
       background:var(--black);
+
       color:#888;
+
       font-size:0.9rem;
+
     }
+
+
+
+    /* --- Responsive Queries --- */
 
     @media(max-width:768px){
 
+
+
       .hero{
+
         padding:90px 6%;
+
       }
 
-      .buttons,
-      .social-buttons{
+
+
+      .buttons{
+
         flex-direction:column;
+
       }
 
-      .btn,
-      .social-buttons a{
+
+
+      .btn{
+
         width:100%;
+
       }
+
+
+
+      .social-buttons {
+
+        gap: 15px;
+
+      }
+
     }
 
+
+
   </style>
+
 </head>
+
+
 
 <body>
 
+
+
   <nav>
-    <div class="logo">ZEUS BUS</div>
+
+    <a href="#" class="logo-container">
+
+
+      <div class="logo-text">ZEUS BUS</div>
+
+    </a>
+
     <a href="https://wa.me/201003246428?text=Reservation%20request%20Zeus%20Bus" class="nav-btn" target="_blank">
-  Reserve Now
-</a>
+
+      Reserve Now
+
+    </a>
+
   </nav>
+
+
 
   <section class="hero">
 
-    <div class="badge">ASSIUT — BUA</div>
 
-    <h1>Smart University Transportation</h1>
+
+    <div class="badge"> BUA </div>
+
+
+
+    <h1>Better vibes Better rides</h1>
+
+
 
     <p>
+
       Safe, organized, and comfortable daily rides for university students in Assiut.
+
     </p>
 
+
+
     <div class="buttons">
-<a href="tel:01157788949" class="btn btn-dark">
-  Call Us 
-</a>
+
+      <a href="tel:01157788949" class="btn btn-dark">
+
+        Call Us
+
+      </a>
+
       <a href="https://chat.whatsapp.com/BAY5HfLAJz6E9TmXSz7i6E" class="btn btn-light" target="_blank">
-  Join WhatsApp Group
-</a>
+
+        Join WhatsApp Group
+
+      </a>
+
     </div>
 
+
+
   </section>
+
+
 
   <section class="features">
 
+
+
     <h2 class="section-title">Why Students Choose Us</h2>
+
+
 
     <div class="grid">
 
+
+
       <div class="card">
+
         <h3>Fixed Schedules</h3>
+
         <p>
-          Organized pickup points and reliable daily timing.
+
+          Organized pickup points and reliable daily timing to get you to campus on time.
+
         </p>
+
       </div>
 
+
+
       <div class="card">
+
         <h3>Comfortable Buses</h3>
+
         <p>
-          Clean rides with a smooth transportation experience.
+
+          Clean, well-maintained rides providing a smooth transportation experience.
+
         </p>
+
       </div>
 
+
+
       <div class="card">
+
         <h3>Student Environment</h3>
+
         <p>
-          Transportation designed specifically for university students.
+
+          A respectful and focused atmosphere designed specifically for university students.
+
         </p>
+
       </div>
 
+
+
       <div class="card">
+
         <h3>Fast Support</h3>
+
         <p>
-          Quick communication through WhatsApp and social media.
+
+          Quick, reliable communication through WhatsApp and social media channels.
+
         </p>
+
       </div>
+
+
 
     </div>
 
+
+
   </section>
+
+
+
+  <!-- Updated Social Section with Icons only -->
 
   <section class="social">
 
-  <h2>Follow Zeus Bus</h2>
 
-  <p>
-    Stay updated with routes, schedules, announcements, and student updates.
-  </p>
 
-  <div class="social-buttons">
+    <h2>Follow Zeus Bus</h2>
 
-    <a href="https://www.instagram.com/zeus.bus?igsh=dm9jenhndGFpdGQz" target="_blank">
-      Instagram
-    </a>
 
-    <a href="https://vm.tiktok.com/ZS9N751Kc84ok-0wCuR/" target="_blank">
-      TikTok
-    </a>
 
-    <a href="https://www.facebook.com/share/18EAcwCmEM/" target="_blank">
-      Facebook
-    </a>
+    <p>
 
-  </div>
+      Stay updated with routes, schedules, announcements, and student updates.
 
-</section>
+    </p>
+
+
+
+    <div class="social-buttons">
+
+
+
+      <!-- Instagram Icon -->
+
+      <a href="https://www.instagram.com/zeus.bus?igsh=dm9jenhndGFpdGQz" target="_blank" class="social-icon-btn" aria-label="Follow Zeus Bus on Instagram">
+
+        <svg class="icon" viewBox="0 0 24 24">
+
+          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+
+        </svg>
+
+      </a>
+
+
+
+      <!-- TikTok Icon -->
+
+      <a href="https://vm.tiktok.com/ZS9N751Kc84ok-0wCuR/" target="_blank" class="social-icon-btn" aria-label="Follow Zeus Bus on TikTok">
+
+        <svg class="icon" viewBox="0 0 24 24">
+
+          <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.11-2.89-.68-3.98-1.65-.13-.11-.26-.23-.38-.35v6.02c0 1.9-.53 3.8-1.56 5.37-1.11 1.69-2.79 2.91-4.71 3.49-1.92.58-4.04.54-5.93-.11-1.89-.65-3.53-2.02-4.59-3.72C.23 17.33-.18 15.17.07 13.06c.25-2.11 1.2-4.14 2.72-5.61 1.52-1.47 3.56-2.38 5.68-2.6 1.05-.1 2.1-.01 3.14.21v4.11c-.72-.25-1.49-.36-2.25-.33-1.01.03-2.01.35-2.86.91-.85.56-1.53 1.37-1.93 2.32-.4.95-.51 2.02-.31 3.05s.74 1.98 1.52 2.71c.78.73 1.78 1.2 2.85 1.36.32.05.64.08.96.08.79 0 1.57-.15 2.29-.44.72-.29 1.37-.73 1.89-1.28.52-.55.91-1.21 1.13-1.93.22-.72.31-1.48.27-2.24l-.01-10.22z"/>
+
+        </svg>
+
+      </a>
+
+
+
+      <!-- Facebook Icon -->
+
+      <a href="https://www.facebook.com/share/18EAcwCmEM/" target="_blank" class="social-icon-btn" aria-label="Follow Zeus Bus on Facebook">
+
+        <svg class="icon" viewBox="0 0 24 24">
+
+          <path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"/>
+
+        </svg>
+
+      </a>
+
+
+
+    </div>
+
+
+
+  </section>
+
+
+
   <footer>
-    © 2026 Zeus Bus. All Rights Reserved.
+
+    &copy; 2026 Zeus Bus. All Rights Reserved. Assiut, Egypt.
+
   </footer>
 
+
+
 </body>
+
 </html>
