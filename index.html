@@ -794,6 +794,7 @@
     method="POST"
     target="hidden_iframe"
     class="phone-form"
+    onsubmit="stayHere()"
   >
 
     <input
@@ -804,7 +805,7 @@
     >
 
     <button type="submit">
-      Apply 
+      Reserve
     </button>
 
   </form>
@@ -812,6 +813,34 @@
   <iframe name="hidden_iframe" style="display:none;"></iframe>
 
 </section>
+
+<script>
+  function stayHere() {
+    sessionStorage.setItem("scrollPosition", window.scrollY);
+
+    setTimeout(() => {
+      location.reload();
+    }, 1000);
+  }
+
+  window.onload = function () {
+    const scrollPosition = sessionStorage.getItem("scrollPosition");
+
+    if (scrollPosition !== null) {
+      window.scrollTo(0, scrollPosition);
+      sessionStorage.removeItem("scrollPosition");
+    }
+  };
+</script>
+
+<script>
+  function reloadSection() {
+    setTimeout(() => {
+      window.location.href = "#reserve";
+      location.reload();
+    }, 1000);
+  }
+</script>
 
   <!-- Updated Social Section with Icons only -->
 
