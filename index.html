@@ -555,6 +555,47 @@
 
 
     /* --- Responsive Queries --- */
+.join-section{
+  padding:60px 6%;
+  background:var(--gray);
+  display:flex;
+  justify-content:center;
+}
+
+.phone-form{
+  width:100%;
+  max-width:500px;
+  display:flex;
+  gap:12px;
+}
+
+.phone-form input{
+  flex:1;
+  padding:15px;
+  border:1px solid #ddd;
+  border-radius:12px;
+  font-size:16px;
+  outline:none;
+}
+
+.phone-form input:focus{
+  border-color:#c1121f;
+}
+
+.phone-form button{
+  padding:15px 24px;
+  border:none;
+  border-radius:12px;
+  background:#c1121f;
+  color:white;
+  font-weight:600;
+  cursor:pointer;
+  transition:0.2s;
+}
+
+.phone-form button:hover{
+  background:#8f0d16;
+}
 
     @media(max-width:768px){
 
@@ -592,7 +633,12 @@
 
     }
 
-
+.limited-box{
+  margin-bottom:30px;
+  font-weight:600;
+  font-size:0.95rem;
+  opacity:0.9;
+}
 
   </style>
 
@@ -641,7 +687,9 @@
 
     </p>
 
-
+<div class="limited-box">
+  Limited Seats For This Semester
+</div>
 
     <div class="buttons">
 
@@ -739,7 +787,31 @@
 
   </section>
 
+<section class="join-section">
 
+  <form 
+    action="https://docs.google.com/forms/d/e/1FAIpQLSezIH3w2Bery9KN7Gu6EwlF6jciKgUw84CRpWmsxFMT_Vt1jA/formResponse"
+    method="POST"
+    target="hidden_iframe"
+    class="phone-form"
+  >
+
+    <input
+      type="tel"
+      name="entry.1730050903"
+      placeholder="Enter Your Phone Number"
+      required
+    >
+
+    <button type="submit">
+      Apply 
+    </button>
+
+  </form>
+
+  <iframe name="hidden_iframe" style="display:none;"></iframe>
+
+</section>
 
   <!-- Updated Social Section with Icons only -->
 
