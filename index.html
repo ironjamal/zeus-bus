@@ -104,52 +104,6 @@
 
 
 
-    /* Graphic Logo referencing the visual theme of image_0.png */
-
-    .logo-icon {
-
-      width: 40px;
-
-      height: 40px;
-
-      background-color: var(--black);
-
-      border-radius: 8px;
-
-      display: flex;
-
-      align-items: center;
-
-      justify-content: center;
-
-      position: relative;
-
-      overflow: hidden;
-
-    }
-
-
-
-    /* Simple lightning/bus shape representation inside the logo box */
-
-    .logo-icon::before {
-
-      content: '';
-
-      position: absolute;
-
-      width: 70%;
-
-      height: 70%;
-
-      background: var(--white);
-
-      clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%, 30% 50%); /* Abstract bus/lightning combo */
-
-    }
-
-
-
     .logo-text {
 
       font-size:1.4rem;
@@ -159,6 +113,48 @@
       color:var(--red);
 
       letter-spacing:1px;
+
+    }
+
+
+
+    .nav-links {
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 14px;
+
+    }
+
+
+
+    .nav-link {
+
+      text-decoration: none;
+
+      color: var(--black);
+
+      font-weight: 600;
+
+      font-size: 0.95rem;
+
+      padding: 8px 14px;
+
+      border-radius: 8px;
+
+      transition: 0.2s;
+
+    }
+
+
+
+    .nav-link:hover {
+
+      background: var(--gray);
+
+      color: var(--red);
 
     }
 
@@ -424,7 +420,7 @@
 
 
 
-    /* --- Social Section (Updated) --- */
+    /* --- Social Section --- */
 
     .social{
 
@@ -492,7 +488,7 @@
 
       height: 60px;
 
-      border-radius:50%; /* Circular buttons */
+      border-radius:50%;
 
       display: flex;
 
@@ -519,8 +515,6 @@
     }
 
 
-
-    /* Simple SVG Icons (using inline SVG for compatibility) */
 
     .icon {
 
@@ -554,52 +548,107 @@
 
 
 
-    /* --- Responsive Queries --- */
-.join-section{
-  padding:60px 6%;
-  background:var(--gray);
-  display:flex;
-  justify-content:center;
-}
+    /* --- Join Section --- */
 
-.phone-form{
-  width:100%;
-  max-width:500px;
-  display:flex;
-  gap:12px;
-}
+    .join-section{
 
-.phone-form input{
-  flex:1;
-  padding:15px;
-  border:1px solid #ddd;
-  border-radius:12px;
-  font-size:16px;
-  outline:none;
-}
+      padding:60px 6%;
 
-.phone-form input:focus{
-  border-color:#c1121f;
-}
+      background:var(--gray);
 
-.phone-form button{
-  padding:15px 24px;
-  border:none;
-  border-radius:12px;
-  background:#c1121f;
-  color:white;
-  font-weight:600;
-  cursor:pointer;
-  transition:0.2s;
-}
+      display:flex;
 
-.phone-form button:hover{
-  background:#8f0d16;
-}
+      justify-content:center;
+
+    }
+
+
+
+    .phone-form{
+
+      width:100%;
+
+      max-width:500px;
+
+      display:flex;
+
+      gap:12px;
+
+    }
+
+
+
+    .phone-form input{
+
+      flex:1;
+
+      padding:15px;
+
+      border:1px solid #ddd;
+
+      border-radius:12px;
+
+      font-size:16px;
+
+      outline:none;
+
+    }
+
+
+
+    .phone-form input:focus{
+
+      border-color:#c1121f;
+
+    }
+
+
+
+    .phone-form button{
+
+      padding:15px 24px;
+
+      border:none;
+
+      border-radius:12px;
+
+      background:#c1121f;
+
+      color:white;
+
+      font-weight:600;
+
+      cursor:pointer;
+
+      transition:0.2s;
+
+    }
+
+
+
+    .phone-form button:hover{
+
+      background:#8f0d16;
+
+    }
+
+
+
+    .limited-box{
+
+      margin-bottom:30px;
+
+      font-weight:600;
+
+      font-size:0.95rem;
+
+      opacity:0.9;
+
+    }
+
+
 
     @media(max-width:768px){
-
-
 
       .hero{
 
@@ -607,15 +656,11 @@
 
       }
 
-
-
       .buttons{
 
         flex-direction:column;
 
       }
-
-
 
       .btn{
 
@@ -623,22 +668,21 @@
 
       }
 
-
-
       .social-buttons {
 
         gap: 15px;
 
       }
 
+      .nav-link {
+
+        display: none;
+
+      }
+
     }
 
-.limited-box{
-  margin-bottom:30px;
-  font-weight:600;
-  font-size:0.95rem;
-  opacity:0.9;
-}
+
 
   </style>
 
@@ -652,18 +696,23 @@
 
   <nav>
 
-   <a href="javascript:location.reload()" class="logo-container">
-
+    <a href="javascript:location.reload()" class="logo-container">
 
       <div class="logo-text">ZEUS BUS</div>
 
     </a>
 
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLSeB-g0PqexsdDbRheIVA4l95dSTmZdJZY3OPIa6RiLrSdocnQ/viewform?usp=header" class="nav-btn" target="_blank">
+    <div class="nav-links">
 
-      Reserve Now
+      <a href="schedules.html" class="nav-link">Schedules</a>
 
-    </a>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSeB-g0PqexsdDbRheIVA4l95dSTmZdJZY3OPIa6RiLrSdocnQ/viewform?usp=header" class="nav-btn" target="_blank">
+
+        Reserve Now
+
+      </a>
+
+    </div>
 
   </nav>
 
@@ -687,9 +736,11 @@
 
     </p>
 
-<div class="limited-box">
-  Limited Seats For This Semester
-</div>
+    <div class="limited-box">
+
+      Limited Seats For This Semester
+
+    </div>
 
     <div class="buttons">
 
@@ -787,62 +838,81 @@
 
   </section>
 
-<section class="join-section">
 
-  <form 
-    action="https://docs.google.com/forms/d/e/1FAIpQLSezIH3w2Bery9KN7Gu6EwlF6jciKgUw84CRpWmsxFMT_Vt1jA/formResponse"
-    method="POST"
-    target="hidden_iframe"
-    class="phone-form"
-    onsubmit="stayHere()"
-  >
 
-    <input
-      type="tel"
-      name="entry.1730050903"
-      placeholder="Enter Your Phone Number"
-      required
+  <section class="join-section">
+
+    <form
+
+      action="https://docs.google.com/forms/d/e/1FAIpQLSezIH3w2Bery9KN7Gu6EwlF6jciKgUw84CRpWmsxFMT_Vt1jA/formResponse"
+
+      method="POST"
+
+      target="hidden_iframe"
+
+      class="phone-form"
+
+      onsubmit="stayHere()"
+
     >
 
-    <button type="submit">
-      Apply 
-    </button>
+      <input
 
-  </form>
+        type="tel"
 
-  <iframe name="hidden_iframe" style="display:none;"></iframe>
+        name="entry.1730050903"
 
-</section>
+        placeholder="Enter Your Phone Number"
 
-<script>
-  function stayHere() {
-    sessionStorage.setItem("scrollPosition", window.scrollY);
+        required
 
-    setTimeout(() => {
-      location.reload();
-    }, 1000);
-  }
+      >
 
-  window.onload = function () {
-    const scrollPosition = sessionStorage.getItem("scrollPosition");
+      <button type="submit">
 
-    if (scrollPosition !== null) {
-      window.scrollTo(0, scrollPosition);
-      sessionStorage.removeItem("scrollPosition");
+        Reserve
+
+      </button>
+
+    </form>
+
+    <iframe name="hidden_iframe" style="display:none;"></iframe>
+
+  </section>
+
+
+
+  <script>
+
+    function stayHere() {
+
+      sessionStorage.setItem("scrollPosition", window.scrollY);
+
+      setTimeout(() => {
+
+        location.reload();
+
+      }, 1000);
+
     }
-  };
-</script>
 
-<script>
-  function reloadSection() {
-    setTimeout(() => {
-      window.location.href = "#reserve";
-      location.reload();
-    }, 1000);
-  }
-</script>
+    window.onload = function () {
 
-  <!-- Updated Social Section with Icons only -->
+      const scrollPosition = sessionStorage.getItem("scrollPosition");
+
+      if (scrollPosition !== null) {
+
+        window.scrollTo(0, scrollPosition);
+
+        sessionStorage.removeItem("scrollPosition");
+
+      }
+
+    };
+
+  </script>
+
+
 
   <section class="social">
 
@@ -864,8 +934,6 @@
 
 
 
-      <!-- Instagram Icon -->
-
       <a href="https://www.instagram.com/zeus.bus?igsh=dm9jenhndGFpdGQz" target="_blank" class="social-icon-btn" aria-label="Follow Zeus Bus on Instagram">
 
         <svg class="icon" viewBox="0 0 24 24">
@@ -878,8 +946,6 @@
 
 
 
-      <!-- TikTok Icon -->
-
       <a href="https://vm.tiktok.com/ZS9N751Kc84ok-0wCuR/" target="_blank" class="social-icon-btn" aria-label="Follow Zeus Bus on TikTok">
 
         <svg class="icon" viewBox="0 0 24 24">
@@ -891,8 +957,6 @@
       </a>
 
 
-
-      <!-- Facebook Icon -->
 
       <a href="https://www.facebook.com/share/18EAcwCmEM/" target="_blank" class="social-icon-btn" aria-label="Follow Zeus Bus on Facebook">
 
