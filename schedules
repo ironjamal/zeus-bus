@@ -235,8 +235,8 @@
 <body>
 
   <nav>
-    <a href="index.html" class="logo">ZEUS BUS</a>
-    <a href="index.html" class="nav-link">Home</a>
+    <a href="https://ironjamal.github.io/zeus-bus/" class="logo">ZEUS BUS</a>
+    <a href="https://ironjamal.github.io/zeus-bus/" class="nav-link">Home</a>
   </nav>
 
   <div class="hero">
