@@ -180,6 +180,57 @@
       .card { padding: 35px 25px; }
       .card-header h2 { font-size: 1.6rem; }
     }
+    /* --- Founders Styling --- */
+.founders-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin-top: 40px;
+  text-align: center;
+}
+
+.founder-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.founder-avatar {
+  width: 80px;
+  height: 80px;
+  background: var(--dark-obsidian);
+  color: var(--pure-white);
+  border-radius: 24px; /* Squircle look */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  font-weight: 900;
+  margin-bottom: 15px;
+  border: 3px solid var(--brand-red);
+}
+
+.founder-item h3 {
+  font-size: 1.2rem;
+  font-weight: 800;
+  margin-bottom: 5px;
+}
+
+.founder-item span {
+  font-size: 0.85rem;
+  color: var(--brand-red);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Responsive adjustment for mobile */
+@media (max-width: 600px) {
+  .founders-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
   </style>
 </head>
 <body>
@@ -231,6 +282,27 @@
         The name <strong>Zeus</strong> represents strength and leadership. Our commitment to you is a "Better Vibe, Better Ride." We use data-driven schedules to ensure you never miss a lecture while maintaining the most well-conditioned buses in the city.
       </p>
     </div>
+    <!-- --- Founders Section --- -->
+<div class="card">
+  <div class="card-header">
+    <h2 style="font-size: 2rem; font-weight: 900; letter-spacing: -1px; margin-bottom: 10px;">The Minds Behind Zeus</h2>
+    <p style="color: var(--text-muted); font-weight: 600; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px;">Owners</p>
+  </div>
+  
+  <div class="founders-grid">
+    <div class="founder-item">
+      <div class="founder-avatar">J</div>
+      <h3> Jamal</h3>
+      <span>Co-Founder</span>
+    </div>
+    
+    <div class="founder-item">
+      <div class="founder-avatar">M</div>
+      <h3>Mohamed Ahmed</h3>
+      <span>Co-Founder</span>
+    </div>
+  </div>
+</div>
 
     <footer>
       ZEUS BUS &bull; ASSIUT 2026
