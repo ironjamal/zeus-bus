@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Roles | Zeus Bus</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --red: #E31E24;
+      --black: #0F0F0F;
+      --white: #FFFFFF;
+      --bg-body: #F8FAFC;
+      --dark-red: #B3191E;
+      --brand-red: #E31E24;
+      --pure-white: #FFFFFF;
+      --off-white: #FBFBFF;
+      --dark-obsidian: #0A0A0A;
+      --text-muted: #94A3B8;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Outfit', sans-serif;
+    }
+
+    body {
+      background-color: var(--off-white);
+      color: var(--dark-obsidian);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 25px 8%;
+      background: var(--dark-red);
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: var(--white);
+      text-decoration: none;
+      letter-spacing: 2px;
+    }
+
+    .nav-link {
+      text-decoration: none;
+      color: var(--white);
+      font-weight: 700;
+      font-size: .9rem;
+      text-transform: uppercase;
+    }
+
+    .hero {
+      padding: 80px 6% 100px;
+      text-align: center;
+      background: var(--pure-white);
+    }
+
+    .hero span {
+      display: inline-block;
+      color: var(--dark-red);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      font-size: 0.8rem;
+      margin-bottom: 15px;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      font-weight: 900;
+      letter-spacing: -2px;
+      line-height: 1.1;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: -50px auto 80px;
+      padding: 0 20px;
+    }
+
+    .card {
+      background: var(--dark-red);
+      border-radius: 32px;
+      padding: 40px;
+      margin-bottom: 25px;
+      color: var(--pure-white);
+      box-shadow: 0 25px 50px -12px rgba(227, 30, 36, 0.25);
+    }
+
+    .card-header {
+      margin-bottom: 25px;
+      border-left: 4px solid var(--pure-white);
+      padding-left: 15px;
+    }
+
+    .card-header h2 {
+      font-size: 1.8rem;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    /* Rules List */
+    .role-list {
+      list-style: none;
+    }
+
+    .role-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 15px;
+      padding: 20px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .role-item:last-child { border-bottom: none; }
+
+    .role-icon {
+      background: var(--pure-white);
+      color: var(--dark-red);
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      flex-shrink: 0;
+      font-size: 0.9rem;
+    }
+
+    .role-content h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 5px;
+    }
+
+    .role-content p {
+      font-size: 0.95rem;
+      opacity: 0.85;
+      line-height: 1.5;
+    }
+
+    .footer-note {
+      background: var(--dark-obsidian);
+      border-radius: 28px;
+      padding: 30px;
+      text-align: center;
+      color: white;
+      margin-top: 40px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 60px 0;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    @media (max-width: 500px) {
+      .hero h1 { font-size: 2.5rem; }
+      .card { padding: 30px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="#" class="logo">ZEUS BUS</a>
+    <a href="https://ironjamal.github.io/zeus-bus/" class="nav-link">Back</a>
+  </nav>
+
+  <div class="hero">
+    <span>Community Standards</span>
+    <h1>Our Roles &<br>Respect.</h1>
+  </div>
+
+  <div class="container">
+    
+    <div class="card">
+      <div class="card-header">
+        <h2>The Student's Role</h2>
+      </div>
+
+      <div class="role-list">
+        <div class="role-item">
+          <div class="role-icon">01</div>
+          <div class="role-content">
+            <h3>Respect the Space</h3>
+            <p>Keep the bus clean. Use trash bins and avoid leaving personal items behind to ensure a comfortable ride for everyone.</p>
+          </div>
+        </div>
+
+        <div class="role-item">
+          <div class="role-icon">02</div>
+          <div class="role-content">
+            <h3>Volume Control</h3>
+            <p>Maintain a moderate noise level. Use headphones for music or videos to respect those who may be studying or resting.</p>
+          </div>
+        </div>
+
+        <div class="role-item">
+          <div class="role-icon">03</div>
+          <div class="role-content">
+            <h3>Safety First</h3>
+            <p>Remain seated while the bus is in motion. Avoid distracting the driver and follow all boarding instructions.</p>
+          </div>
+        </div>
+
+        <div class="role-item">
+          <div class="role-icon">04</div>
+          <div class="role-content">
+            <h3>Punctuality</h3>
+            <p>Be at your designated stop 5 minutes early. Respecting the schedule helps everyone get to class on time.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-note">
+      <p style="color: var(--brand-red); font-weight: 900; margin-bottom: 10px; text-transform: uppercase;">The Zeus Goal</p>
+      <p style="opacity: 0.9;">By following these roles, we create an environment that supports every student's academic journey.</p>
+    </div>
+
+    <footer>
+      ZEUS BUS &bull; ASSIUT 2026
+    </footer>
+  </div>
+
+</body>
+</html>
