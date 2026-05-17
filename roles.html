@@ -4,198 +4,276 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Our Roles | Zeus Bus</title>
-   <!-- Google Font: Outfit -->
-
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;900&display=swap" rel="stylesheet">
-
- <link rel="icon" type="image/png" href="logo.png">
+  
+  <!-- Google Font: Outfit -->
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="logo.png">
 
   <style>
     :root {
-      --red: #E31E24;
-      --black: #0F0F0F;
-      --white: #FFFFFF;
-      --bg-body: #F8FAFC;
-      --dark-red: #B3191E;
-      --brand-red: #E31E24;
-      --pure-white: #FFFFFF;
-      --off-white: #FBFBFF;
-      --dark-obsidian: #0A0A0A;
-      --text-muted: #94A3B8;
+      --red: #c1121f;
+      --dark-red: #8f0d16;
+      --black: #0d0d0d;
+      --white: #ffffff;
+      --gray: #f7f7f7;
+      --border: #e8e8e8;
+      --muted: #777;
+      --nav-h: 66px;
     }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Outfit', sans-serif;
+    *, *::before, *::after { 
+      margin: 0; 
+      padding: 0; 
+      box-sizing: border-box; 
+      font-family: 'Outfit', sans-serif; 
+    }
+    
+    html { 
+      scroll-behavior: smooth; 
+    }
+    
+    body { 
+      background: var(--white); 
+      color: var(--black); 
+      -webkit-font-smoothing: antialiased; 
     }
 
-    body {
-      background-color: var(--off-white);
-      color: var(--dark-obsidian);
-      -webkit-font-smoothing: antialiased;
-    }
-
+    /* ── NAV (Synced with Landing Page) ── */
     nav {
+      height: var(--nav-h);
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      padding: 25px 8%;
-      background: var(--dark-red);
+      justify-content: space-between;
+      padding: 0 7%;
+      background: rgba(255,255,255,0.94);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
 
     .logo {
-      font-size: 1.5rem;
-      font-weight: 900;
-      color: var(--white);
+      display: flex;
+      align-items: center;
+      gap: 9px;
       text-decoration: none;
+    }
+
+    .logo-name {
+      font-size: 1.05rem;
+      font-weight: 900;
+      color: var(--black);
       letter-spacing: 2px;
+    }
+
+    .logo-name span { 
+      color: var(--red); 
     }
 
     .nav-link {
       text-decoration: none;
-      color: var(--white);
-      font-weight: 700;
-      font-size: .9rem;
-      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 600;
+      font-size: 0.875rem;
+      padding: 7px 16px;
+      border-radius: 7px;
+      border: 1px solid var(--border);
+      transition: color 0.15s, background 0.15s;
     }
 
+    .nav-link:hover { 
+      color: var(--black); 
+      background: var(--gray); 
+    }
+
+    /* ── HERO ── */
     .hero {
-      padding: 80px 6% 100px;
+      background: var(--gray);
+      padding: 80px 7% 120px;
       text-align: center;
-      background: var(--pure-white);
+      position: relative;
     }
 
-    .hero span {
+    .hero-eyebrow {
       display: inline-block;
-      color: var(--dark-red);
-      font-weight: 800;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 2.5px;
       text-transform: uppercase;
-      letter-spacing: 4px;
-      font-size: 0.8rem;
-      margin-bottom: 15px;
+      color: var(--red);
+      margin-bottom: 12px;
     }
 
     .hero h1 {
-      font-size: 3.5rem;
+      font-size: clamp(2.5rem, 5.5vw, 4rem);
       font-weight: 900;
-      letter-spacing: -2px;
-      line-height: 1.1;
+      color: var(--black);
+      line-height: 1.05;
+      letter-spacing: -1px;
     }
 
+    /* ── CONTAINER & CARDS ── */
     .container {
-      max-width: 700px;
-      margin: -50px auto 80px;
-      padding: 0 20px;
+      max-width: 800px;
+      margin: -60px auto 0;
+      padding: 0 7%;
+      position: relative;
+      z-index: 10;
     }
 
     .card {
-      background: var(--dark-red);
-      border-radius: 32px;
-      padding: 40px;
-      margin-bottom: 25px;
-      color: var(--pure-white);
-      box-shadow: 0 25px 50px -12px rgba(227, 30, 36, 0.25);
+      background: var(--black);
+      border-radius: 20px;
+      padding: 50px 45px;
+      color: var(--white);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
     }
 
     .card-header {
-      margin-bottom: 25px;
-      border-left: 4px solid var(--pure-white);
+      margin-bottom: 35px;
+      border-left: 3px solid var(--red);
       padding-left: 15px;
     }
 
     .card-header h2 {
-      font-size: 1.8rem;
-      font-weight: 800;
-      text-transform: uppercase;
+      font-size: 1.6rem;
+      font-weight: 900;
+      letter-spacing: -0.5px;
+      color: var(--white);
     }
 
     /* Rules List */
     .role-list {
-      list-style: none;
+      display: flex;
+      flex-direction: column;
     }
 
     .role-item {
       display: flex;
       align-items: flex-start;
-      gap: 15px;
-      padding: 20px 0;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+      gap: 20px;
+      padding: 24px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      transition: transform 0.2s ease;
     }
 
-    .role-item:last-child { border-bottom: none; }
+    .role-item:last-child { 
+      border-bottom: none; 
+    }
 
     .role-icon {
-      background: var(--pure-white);
-      color: var(--dark-red);
-      width: 35px;
-      height: 35px;
-      border-radius: 50%;
+      background: rgba(193, 18, 31, 0.15);
+      color: var(--red);
+      border: 1px solid rgba(193, 18, 31, 0.3);
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-weight: 900;
+      font-weight: 700;
       flex-shrink: 0;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
     }
 
     .role-content h3 {
       font-size: 1.1rem;
       font-weight: 700;
-      margin-bottom: 5px;
+      color: var(--white);
+      margin-bottom: 6px;
     }
 
     .role-content p {
-      font-size: 0.95rem;
-      opacity: 0.85;
-      line-height: 1.5;
+      font-size: 0.92rem;
+      color: rgba(255, 255, 255, 0.6);
+      line-height: 1.65;
     }
 
+    /* Footer Banner Note */
     .footer-note {
-      background: var(--dark-obsidian);
-      border-radius: 28px;
+      background: var(--gray);
+      border: 1px solid var(--border);
+      border-radius: 16px;
       padding: 30px;
       text-align: center;
-      color: white;
-      margin-top: 40px;
+      margin-top: 30px;
     }
 
+    .note-kicker {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 6px;
+    }
+
+    .note-text {
+      font-size: 0.9rem;
+      color: var(--black);
+      max-width: 500px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    /* ── FOOTER ── */
     footer {
       text-align: center;
-      padding: 60px 0;
-      color: var(--text-muted);
-      font-size: 0.85rem;
-      font-weight: 700;
-      letter-spacing: 1px;
+      padding: 80px 0 60px;
+      color: var(--muted);
     }
 
-    @media (max-width: 500px) {
-      .hero h1 { font-size: 2.5rem; }
-      .card { padding: 30px 20px; }
+    .footer-copy {
+      font-size: 0.78rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+    }
+
+    /* ── RESPONSIVE GRAPH ── */
+    @media (max-width: 768px) {
+      nav { padding: 0 5%; }
+      .hero { padding: 60px 5% 100px; }
+      .container { padding: 0 5%; margin-top: -50px; }
+      .card { padding: 35px 24px; }
+      .role-item { flex-direction: column; gap: 12px; }
+    }
+
+    @media (max-width: 480px) {
+      .hero h1 { font-size: 2.2rem; }
+      .card-header h2 { font-size: 1.35rem; }
     }
   </style>
 </head>
 <body>
 
+  <!-- NAV -->
   <nav>
-    <a href="#" class="logo">ZEUS BUS</a>
-    <a href="https://ironjamal.github.io/zeus-bus/" class="nav-link">Back</a>
+    <a href="https://ironjamal.github.io/zeus-bus/" class="logo">
+      <div class="logo-name">ZEUS<span> BUS</span></div>
+    </a>
+    <a href="https://ironjamal.github.io/zeus-bus/" class="nav-link">← Back</a>
   </nav>
 
-  <div class="hero">
-    <span>Community Standards</span>
-    <h1>Our Roles &<br>Respect.</h1>
-  </div>
+  <!-- HERO -->
+  <section class="hero">
+    <span class="hero-eyebrow">Community Standards</span>
+    <h1>Our Roles &<br>Respect</h1>
+  </section>
 
+  <!-- CONTENT CONTAINER -->
   <div class="container">
     
+    <!-- THE ROLES CARD -->
     <div class="card">
       <div class="card-header">
         <h2>The Student's Role</h2>
       </div>
 
       <div class="role-list">
+        <!-- Item 1 -->
         <div class="role-item">
           <div class="role-icon">01</div>
           <div class="role-content">
@@ -204,6 +282,7 @@
           </div>
         </div>
 
+        <!-- Item 2 -->
         <div class="role-item">
           <div class="role-icon">02</div>
           <div class="role-content">
@@ -212,6 +291,7 @@
           </div>
         </div>
 
+        <!-- Item 3 -->
         <div class="role-item">
           <div class="role-icon">03</div>
           <div class="role-content">
@@ -220,6 +300,7 @@
           </div>
         </div>
 
+        <!-- Item 4 -->
         <div class="role-item">
           <div class="role-icon">04</div>
           <div class="role-content">
@@ -230,13 +311,15 @@
       </div>
     </div>
 
+    <!-- TARGET GOAL BANNER -->
     <div class="footer-note">
-      <p style="color: var(--brand-red); font-weight: 900; margin-bottom: 10px; text-transform: uppercase;">The Zeus Goal</p>
-      <p style="opacity: 0.9;">By following these roles, we create an environment that supports every student's academic journey.</p>
+      <div class="note-kicker">The Zeus Goal</div>
+      <p class="note-text">By following these roles, we create an environment that supports every student's academic journey.</p>
     </div>
 
+    <!-- FOOTER -->
     <footer>
-      ZEUS BUS &bull; ASSIUT 2026
+      <div class="footer-copy">&copy; 2026 Zeus Bus &bull; Assiut, Egypt</div>
     </footer>
   </div>
 
