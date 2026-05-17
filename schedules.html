@@ -4,140 +4,174 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Schedules | Zeus Bus</title>
-   <!-- Google Font: Outfit -->
-
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;900&display=swap" rel="stylesheet">
-
- <link rel="icon" type="image/png" href="logo.png">
+  
+  <!-- Google Font: Outfit -->
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="logo.png">
+  
   <style>
     :root {
-      --red: #E31E24;
-      --black: #0F0F0F;
-      --white: #FFFFFF;
-      --bg-body: #F8FAFC;
-      --text-muted: #64748B;
-      --dark-red: #B3191E;
-      --brand-red: #E31E24;
-      --deep-red: #B3191E;
-      --pure-white: #FFFFFF;
-      --off-white: #FBFBFF;
-      --dark-obsidian: #0A0A0A;
-      --text-muted: #94A3B8;
+      --red: #c1121f;
+      --dark-red: #8f0d16;
+      --black: #0d0d0d;
+      --white: #ffffff;
+      --gray: #f7f7f7;
+      --border: #e8e8e8;
+      --muted: #777;
+      --nav-h: 66px;
     }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Outfit', sans-serif;
+    *, *::before, *::after { 
+      margin: 0; 
+      padding: 0; 
+      box-sizing: border-box; 
+      font-family: 'Outfit', sans-serif; 
     }
+    
+    html { scroll-behavior: smooth; }
+    body { background: var(--gray); color: var(--black); -webkit-font-smoothing: antialiased; }
 
-    body {
-      background-color: var(--off-white);
-      color: var(--dark-obsidian);
-      -webkit-font-smoothing: antialiased;
-    }
-
-    /* --- Navbar: Elegant & Minimal --- */
+    /* ── NAV ── */
     nav {
+      height: var(--nav-h);
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      padding: 25px 8%;
-      background: var(--dark-red);
-      border-bottom: 1px solid #F1F5F9;
+      justify-content: space-between;
+      padding: 0 7%;
+      background: rgba(255,255,255,0.94);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
 
     .logo {
-      font-size: 1.5rem;
-      font-weight: 900;
-      color: var(--white);
+      display: flex;
+      align-items: center;
+      gap: 9px;
       text-decoration: none;
+    }
+
+    .logo-name {
+      font-size: 1.05rem;
+      font-weight: 900;
+      color: var(--black);
       letter-spacing: 2px;
     }
 
+    .logo-name span { color: var(--red); }
+
     .nav-link {
       text-decoration: none;
-      color: var(--white);
-      font-weight: 700;
-      font-size: .9rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
+      color: var(--muted);
+      font-weight: 500;
+      font-size: 0.875rem;
+      padding: 7px 13px;
+      border-radius: 7px;
+      transition: color 0.15s, background 0.15s;
     }
 
-    /* --- Hero: Minimalist White --- */
+    .nav-link:hover { color: var(--black); background: var(--gray); }
+
+    /* ── HERO ── */
     .hero {
-      padding: 80px 6% 120px;
+      padding: 80px 7% 100px;
       text-align: center;
-      background: var(--pure-white);
+      background: var(--white);
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid var(--border);
     }
 
-    .hero span {
-      display: inline-block;
-      color: var(--dark-red);
-      font-weight: 800;
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -120px; right: -50px;
+      width: 320px; height: 320px;
+      border-radius: 50%;
+      background: rgba(193, 18, 31, 0.03);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .section-kicker {
+      display: block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 2.5px;
       text-transform: uppercase;
-      letter-spacing: 4px;
-      font-size: 0.8rem;
-      margin-bottom: 15px;
+      color: var(--red);
+      margin-bottom: 12px;
     }
 
     .hero h1 {
-      font-size: 3.5rem;
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
       font-weight: 900;
-      letter-spacing: -2px;
-      line-height: 1;
+      letter-spacing: -1px;
+      line-height: 1.1;
+      color: var(--black);
     }
 
-    /* --- Container --- */
+    /* ── CONTAINER ── */
     .container {
-      max-width: 600px;
-      margin: -70px auto 80px;
+      max-width: 640px;
+      margin: -50px auto 80px;
       padding: 0 20px;
+      position: relative;
+      z-index: 2;
     }
 
-    /* --- Pro Red Cards --- */
+    /* ── CARDS ── */
     .card {
-      background: var(--dark-red);
-      border-radius: 32px;
+      background: var(--black);
+      border-radius: 24px;
       padding: 40px;
-      margin-bottom: 25px;
-      color: var(--pure-white);
-      box-shadow: 0 25px 50px -12px rgba(227, 30, 36, 0.25);
-      transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      margin-bottom: 24px;
+      color: var(--white);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .card:hover {
-      transform: translateY(-8px);
+      transform: translateY(-4px);
     }
 
     .card-header {
-      margin-bottom: 30px;
-      border-left: 4px solid var(--pure-white);
-      padding-left: 15px;
+      margin-bottom: 28px;
+      border-left: 3px solid var(--red);
+      padding-left: 14px;
     }
 
     .card-header h2 {
-      font-size: 1.5rem;
-      font-weight: 800;
-      letter-spacing: -0.5px;
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: -0.3px;
     }
 
     /* Route Tags */
     .route-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
       gap: 12px;
     }
 
     .route-tag {
-      background: rgba(255, 255, 255, 0.12);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      padding: 15px;
-      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 16px;
+      border-radius: 14px;
       text-align: center;
-      font-weight: 700;
-      backdrop-filter: blur(5px);
+      font-weight: 600;
+      font-size: 0.95rem;
+      letter-spacing: 0.3px;
     }
 
     /* Schedule Styling */
@@ -145,8 +179,8 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 20px 0;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+      padding: 20px 4px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     }
 
     .time-row:last-child { border-bottom: none; }
@@ -155,98 +189,200 @@
       font-size: 0.7rem;
       text-transform: uppercase;
       font-weight: 700;
-      opacity: 0.8;
+      letter-spacing: 1px;
+      color: var(--muted);
       display: block;
       margin-bottom: 4px;
     }
 
     .time-block .hour {
-      font-size: 1.4rem;
-      font-weight: 900;
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: -0.2px;
     }
 
     .separator {
       height: 2px;
-      width: 30px;
-      background: var(--pure-white);
-      opacity: 0.5;
+      width: 24px;
+      background: rgba(255, 255, 255, 0.15);
     }
 
-    /* Exam Alert */
-    .exam-card {
-      background: var(--dark-obsidian);
+    /* ── HIGH VISIBILITY EXAM SECTION (ENHANCED) ── */
+    .exam-section {
+      background: linear-gradient(135deg, #161616 0%, #0d0d0d 100%);
+      border: 1px solid rgba(193, 18, 31, 0.35);
       border-radius: 28px;
-      padding: 25px;
-      text-align: center;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+      padding: 36px;
+      color: var(--white);
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 25px 50px -12px rgba(193, 18, 31, 0.15);
     }
 
-    .exam-card h4 {
-      color: var(--brand-red);
-      font-weight: 900;
-      font-size: 1.1rem;
-      margin-bottom: 5px;
+    /* Ambient background red glow directly behind the exam block */
+    .exam-section::before {
+      content: '';
+      position: absolute;
+      bottom: -80px; left: -80px;
+      width: 200px; height: 200px;
+      background: radial-gradient(circle, rgba(193, 18, 31, 0.2) 0%, rgba(0,0,0,0) 70%);
+      pointer-events: none;
     }
 
-    .exam-card p {
-      color: var(--pure-white);
+    .exam-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .exam-title-group {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .exam-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(193, 18, 31, 0.12);
+      border: 1px solid rgba(193, 18, 31, 0.4);
+      color: #ff4d5a;
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border-radius: 100px;
+      align-self: flex-start;
+    }
+
+    .pulse-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: #ff4d5a;
+      animation: alertPulse 1.8s infinite;
+    }
+
+    @keyframes alertPulse {
+      0% { box-shadow: 0 0 0 0 rgba(255, 77, 90, 0.7); }
+      70% { box-shadow: 0 0 0 6px rgba(255, 77, 90, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(255, 77, 90, 0); }
+    }
+
+    .exam-section h3 {
+      font-size: 1.4rem;
+      font-weight: 800;
+      letter-spacing: -0.3px;
+      color: var(--white);
+    }
+
+    .exam-section p {
+      color: #94a3b8;
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+
+    /* Highlight box detailing changes */
+    .exam-change-box {
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      padding: 16px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .change-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.85rem;
       font-weight: 500;
-      opacity: 0.9;
+      color: rgba(255, 255, 255, 0.85);
     }
 
-    /* The Main CTA */
+    .change-item svg {
+      width: 16px; height: 16px;
+      fill: var(--red);
+      flex-shrink: 0;
+    }
+
+    /* ── MAIN CTA BUTTON ── */
     .cta-button {
-      display: block;
-      background: var(--dark-red);
-      color: var(--pure-white);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      background: var(--red);
+      color: var(--white);
       text-align: center;
-      padding: 25px;
-      border-radius: 24px;
+      padding: 18px;
+      border-radius: 16px;
       text-decoration: none;
-      font-weight: 900;
-      font-size: 1.2rem;
-      margin-top: 40px;
-      box-shadow: 0 20px 40px rgba(227, 30, 36, 0.3);
-      transition: 0.3s;
+      font-weight: 700;
+      font-size: 1rem;
+      margin-top: 32px;
+      box-shadow: 0 10px 25px rgba(193, 18, 31, 0.25);
+      transition: all 0.2s ease;
     }
 
     .cta-button:hover {
-      background: var(--dark-obsidian);
-      transform: scale(1.02);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+      background: var(--dark-red);
+      transform: translateY(-2px);
+      box-shadow: 0 14px 30px rgba(193, 18, 31, 0.35);
     }
 
+    /* ── FOOTER ── */
     footer {
       text-align: center;
-      padding: 60px 0;
-      color: var(--text-muted);
-      font-size: 0.85rem;
-      font-weight: 700;
-      letter-spacing: 1px;
+      padding: 80px 0 40px;
+      color: var(--muted);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
     }
 
-    @media (max-width: 500px) {
-      .hero h1 { font-size: 2.8rem; }
-      .card { padding: 30px 20px; }
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav { padding: 0 5%; }
+      .hero { padding: 60px 5% 90px; }
+      .container { margin-top: -40px; }
+    }
+
+    @media (max-width: 480px) {
+      .card, .exam-section { padding: 32px 24px; }
+      .route-grid { grid-template-columns: 1fr; }
       .time-block .hour { font-size: 1.1rem; }
     }
   </style>
 </head>
 <body>
 
+  <!-- NAV -->
   <nav>
-    <a href="https://ironjamal.github.io/zeus-bus/" class="logo">ZEUS BUS</a>
+    <a href="https://ironjamal.github.io/zeus-bus/" class="logo">
+      <div class="logo-name">ZEUS<span> BUS</span></div>
+    </a>
     <a href="https://ironjamal.github.io/zeus-bus/" class="nav-link">Home</a>
   </nav>
 
-  <div class="hero">
-    <span>Ready to go?</span>
-    <h1>Where we go!</h1>
-  </div>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <span class="section-kicker">Ready to go?</span>
+      <h1>Where we go!</h1>
+    </div>
+  </section>
 
+  <!-- CONTENT CONTAINER -->
   <div class="container">
     
-    <!-- Routes -->
+    <!-- Active Lines Card -->
     <div class="card">
       <div class="card-header">
         <h2>Active Lines</h2>
@@ -258,7 +394,7 @@
       </div>
     </div>
 
-    <!-- Times -->
+    <!-- Bus Timings Card -->
     <div class="card">
       <div class="card-header">
         <h2>Bus Timings</h2>
@@ -301,19 +437,42 @@
       </div>
     </div>
 
-    <!-- Special Exam Note -->
-    <div class="exam-card">
-      <h4>Final & midterm</h4>
-      <p>Flexible Departure Times During Exams</p>
+    <!-- ENHANCED HIGH-VISIBILITY EXAM SECTION -->
+    <div class="exam-section">
+      <div class="exam-top">
+        <div class="exam-title-group">
+          <div class="exam-badge">
+            <span class="pulse-dot"></span>
+            Live Updates
+          </div>
+          <h3>Midterms & Finals Schedule</h3>
+        </div>
+      </div>
+      
+      <p style="margin-bottom: 20px;">
+        To best fit your exam tracking blocks, morning departures are locked while return timings adapt dynamically to your precise test completion hours.
+      </p>
+
+      <div class="exam-change-box">
+        <div class="change-item">
+          <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+          Morning lines remain strictly on-time
+        </div>
+        <div class="change-item">
+          <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+          Flexible return intervals matching exam windows
+        </div>
+      </div>
     </div>
 
-    <!-- Main Action -->
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLSeB-g0PqexsdDbRheIVA4l95dSTmZdJZY3OPIa6RiLrSdocnQ/viewform?usp=header" class="cta-button">
-      Book Your Seat
+    <!-- Main Action Link -->
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSeB-g0PqexsdDbRheIVA4l95dSTmZdJZY3OPIa6RiLrSdocnQ/viewform?usp=header" target="_blank" class="cta-button">
+      Book Your Seat →
     </a>
 
+    <!-- Footer -->
     <footer>
-      ZEUS BUS &bull; ASSIUT 2026
+      Zeus Bus &bull; Assiut 2026
     </footer>
   </div>
 
