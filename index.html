@@ -33,6 +33,48 @@
   <a href="https://docs.google.com/forms/d/e/1FAIpQLSeB-g0PqexsdDbRheIVA4l95dSTmZdJZY3OPIa6RiLrSdocnQ/viewform?usp=header" target="_blank" class="btn btn-primary btn-block">Reserve Seat →</a>
 </div>
 
+<!-- JOURNEY RAIL — the road the bus travels the whole homepage on -->
+<div class="journey-rail" id="journeyRail" aria-hidden="true">
+  <div class="journey-rail-road">
+    <div class="journey-rail-lane"></div>
+    <div class="journey-rail-progress"></div>
+    <div class="journey-rail-stops" id="journeyRailStops">
+      <div class="journey-rail-stop" data-stop="hero"><span class="dot"></span><span class="tag">Hero</span></div>
+      <div class="journey-rail-stop" data-stop="journey"><span class="dot"></span><span class="tag">Journey</span></div>
+      <div class="journey-rail-stop" data-stop="routes"><span class="dot"></span><span class="tag">Routes</span></div>
+      <div class="journey-rail-stop" data-stop="why"><span class="dot"></span><span class="tag">Why</span></div>
+      <div class="journey-rail-stop" data-stop="stats"><span class="dot"></span><span class="tag">Stats</span></div>
+      <div class="journey-rail-stop" data-stop="about"><span class="dot"></span><span class="tag">About</span></div>
+      <div class="journey-rail-stop" data-stop="schedule"><span class="dot"></span><span class="tag">Schedule</span></div>
+      <div class="journey-rail-stop" data-stop="cta"><span class="dot"></span><span class="tag">Book</span></div>
+      <div class="journey-rail-stop" data-stop="faq"><span class="dot"></span><span class="tag">FAQ</span></div>
+      <div class="journey-rail-stop" data-stop="contact"><span class="dot"></span><span class="tag">Contact</span></div>
+    </div>
+    <div class="journey-rail-bus">
+      <div class="journey-rail-bus-inner">
+        <svg viewBox="0 0 340 140" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="railBusBody" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#e0182b"/><stop offset="0.55" stop-color="#b5121f"/><stop offset="1" stop-color="#6e0a12"/>
+            </linearGradient>
+            <linearGradient id="railBusGlass" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#3a3a40"/><stop offset="1" stop-color="#17171a"/>
+            </linearGradient>
+          </defs>
+          <path d="M18,108 L18,58 C18,46 27,37 39,36 L255,30 C270,29.5 283,36 292,47 L318,80 C322,85 324,91 324,97 L324,108 Z" fill="url(#railBusBody)"/>
+          <path d="M34,64 L34,48 C34,44 37,41 41,41 L120,38 L120,64 Z" fill="url(#railBusGlass)"/>
+          <rect x="128" y="38" width="86" height="26" rx="4" fill="url(#railBusGlass)"/>
+          <path d="M222,38 L262,36 C270,36 277,40 283,47 L296,64 L222,64 Z" fill="url(#railBusGlass)"/>
+          <rect x="18" y="96" width="306" height="12" fill="#141215" opacity="0.8"/>
+          <ellipse cx="312" cy="88" rx="7" ry="5" fill="#ffe9b0"/>
+          <g class="wheel" style="transform-origin:82px 110px"><circle cx="82" cy="110" r="17" fill="#0d0d0d"/><circle cx="82" cy="110" r="8" fill="#4a4a4d"/></g>
+          <g class="wheel" style="transform-origin:262px 110px"><circle cx="262" cy="110" r="17" fill="#0d0d0d"/><circle cx="262" cy="110" r="8" fill="#4a4a4d"/></g>
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- HERO -->
 <header class="hero">
   <div class="hero-grid"></div>
@@ -91,12 +133,6 @@
 
 <!-- ROUTE SPINE WRAPS ALL MAIN CONTENT -->
 <div class="route-spine-wrap" style="position:relative;">
-  <div class="route-spine">
-    <svg preserveAspectRatio="none" viewBox="0 0 2 100" xmlns="http://www.w3.org/2000/svg">
-      <path d="M1,0 L1,100"/>
-      <path class="spine-progress" d="M1,0 L1,100"/>
-    </svg>
-  </div>
 
   <!-- JOURNEY / HOW IT WORKS -->
   <section class="section on-dark" id="journey">
@@ -264,7 +300,7 @@
   </section>
 
   <!-- CTA ARRIVE -->
-  <section class="section" style="padding:100px 6%;">
+  <section class="section" id="cta-arrive" style="padding:100px 6%;">
     <div class="cta-arrive reveal">
       <span class="chip" style="margin-bottom:20px;"><span class="dot"></span>Limited seats — reserve early</span>
       <h2>Ready for your next journey?</h2>
