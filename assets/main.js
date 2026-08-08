@@ -55,23 +55,126 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  /* ---- Route spine progress (homepage) ---- */
-  const spine = document.querySelector('.route-spine .spine-progress');
-  const spineWrap = document.querySelector('.route-spine-wrap');
-  if (spine && spineWrap && !reduceMotion) {
-    const length = spine.getTotalLength ? spine.getTotalLength() : 2000;
-    spine.style.strokeDasharray = length;
-    spine.style.strokeDashoffset = length;
-    const updateSpine = () => {
-      const rect = spineWrap.getBoundingClientRect();
-      const total = rect.height - window.innerHeight * 0.5;
-      const scrolled = Math.min(Math.max(-rect.top, 0), total);
-      const pct = total > 0 ? scrolled / total : 0;
-      spine.style.strokeDashoffset = length - length * pct;
-    };
-    updateSpine();
-    window.addEventListener('scroll', () => requestAnimationFrame(updateSpine), { passive: true });
-    window.addEventListener('resize', () => requestAnimationFrame(updateSpine));
+  /* ---- Journey rail: the red bus traveling the homepage ----
+     Position is driven by scroll progress across a fixed list of
+     section landmarks (Hero → Journey → Routes → Why → Stats →
+     About → Schedule → CTA → FAQ → Contact). A single number, p
+     (0→1), is written to a CSS custom property once per frame;
+     every visual (bus position, progress fill, active stop) reads
+     that variable, so there is exactly one source of truth for
+     "where the bus is" and no separate top/left animation. */
+  const railRoot = document.getElementById('journeyRail');
+  if (railRoot) {
+    const STOP_SELECTORS = ['.hero', '#journey', '#routes', '#why', '#stats', '#about-preview', '#schedule-preview', '#cta-arrive', '#faq', '#contact'];
+    const stopEls = STOP_SELECTORS.map(sel => document.querySelector(sel)).filter(Boolean);
+    const stopMarkers = Array.from(railRoot.querySelectorAll('.journey-rail-stop'));
+    const busEl = railRoot.querySelector('.journey-rail-bus');
+    const busInner = railRoot.querySelector('.journey-rail-bus-inner');
+    const wheelEls = railRoot.querySelectorAll('.journey-rail-bus .wheel');
+
+    let journeyStart = 0;
+    let journeyRange = 1;
+    let stopFractions = [];
+
+    function layoutRail() {
+      if (!stopEls.length) return;
+      const firstRect = stopEls[0].getBoundingClientRect();
+      const lastEl = stopEls[stopEls.length - 1];
+      const lastRect = lastEl.getBoundingClientRect();
+      journeyStart = firstRect.top + window.scrollY;
+      const rawEnd = lastRect.top + window.scrollY + lastRect.height;
+      const maxScrollY = document.documentElement.scrollHeight - window.innerHeight;
+      const journeyEnd = Math.min(rawEnd, Math.max(maxScrollY, journeyStart + 1));
+      journeyRange = Math.max(journeyEnd - journeyStart, 1);
+
+      stopFractions = stopEls.map(el => {
+        const r = el.getBoundingClientRect();
+        const mid = r.top + window.scrollY + r.height / 2;
+        return Math.min(Math.max((mid - journeyStart) / journeyRange, 0), 1);
+      });
+
+      stopMarkers.forEach((marker, i) => {
+        if (stopFractions[i] !== undefined) {
+          marker.style.top = (stopFractions[i] * 100) + '%';
+        }
+      });
+    }
+
+    let targetP = 0;
+    let currentP = 0;
+    let activeIndex = -1;
+    let rafId = null;
+
+    function computeTarget() {
+      const y = window.scrollY;
+      targetP = Math.min(Math.max((y - journeyStart) / journeyRange, 0), 1);
+      const visible = y > 80 && y < journeyStart + journeyRange + 200;
+      railRoot.classList.toggle('visible', visible);
+    }
+
+    function updateActiveStop() {
+      let idx = 0;
+      for (let i = 0; i < stopFractions.length; i++) {
+        if (currentP >= stopFractions[i] - 0.004) idx = i;
+      }
+      if (idx !== activeIndex) {
+        activeIndex = idx;
+        stopMarkers.forEach((marker, i) => {
+          marker.classList.toggle('active', i <= activeIndex);
+          marker.classList.toggle('current', i === activeIndex);
+        });
+      }
+    }
+
+    if (reduceMotion) {
+      // Static: snap straight to the correct position, no continuous
+      // animation, no wheel spin, no suspension.
+      const applyStatic = () => {
+        layoutRail();
+        computeTarget();
+        currentP = targetP;
+        railRoot.style.setProperty('--p', currentP.toFixed(4));
+        updateActiveStop();
+      };
+      applyStatic();
+      window.addEventListener('scroll', applyStatic, { passive: true });
+      window.addEventListener('resize', applyStatic);
+    } else {
+      let wheelAngle = 0;
+
+      function tick() {
+        const diff = targetP - currentP;
+        currentP += diff * 0.09;
+        if (Math.abs(diff) < 0.0003) currentP = targetP;
+
+        railRoot.style.setProperty('--p', currentP.toFixed(4));
+        updateActiveStop();
+
+        // Speed proxy from how fast we're closing the gap to the
+        // target — naturally near-zero once settled at a stop, and
+        // naturally largest right after a scroll input, so the bus
+        // eases in exactly like it's slowing for a stop.
+        const speed = Math.abs(diff);
+        wheelAngle += speed * 900;
+        if (wheelEls.length) {
+          const rot = 'rotate(' + wheelAngle.toFixed(1) + 'deg)';
+          wheelEls.forEach(w => { w.style.transform = rot; });
+        }
+        if (busInner) {
+          const bounce = Math.min(speed * 40, 2.4);
+          busInner.style.transform = 'translateY(' + (-bounce).toFixed(2) + 'px)';
+        }
+
+        rafId = requestAnimationFrame(tick);
+      }
+
+      layoutRail();
+      computeTarget();
+      window.addEventListener('scroll', computeTarget, { passive: true });
+      window.addEventListener('resize', () => { layoutRail(); computeTarget(); });
+      window.addEventListener('load', layoutRail);
+      rafId = requestAnimationFrame(tick);
+    }
   }
 
   /* ---- FAQ accordion ---- */
