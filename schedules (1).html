@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Schedules — Zeus Bus</title>
+<meta name="description" content="Zeus Bus schedules — active lines, departure and arrival times, and exam-period timing across Alb7r, Alazhar, and Elmo3lmeen.">
+<link rel="icon" type="image/png" href="assets/logo.png">
+<link rel="stylesheet" href="assets/style.css">
+<style>
+  .route-tabs{ display:flex; gap:8px; flex-wrap:wrap; margin-bottom:32px; }
+  .route-tab{ font-family:var(--mono); font-size:0.8rem; font-weight:600; letter-spacing:0.6px; padding:11px 20px; border-radius:100px; border:1.5px solid var(--line); background:var(--white); transition: all .2s var(--ease); }
+  .route-tab.active{ background:var(--ink); color:var(--bone); border-color:var(--ink); }
+  .route-panel{ display:none; }
+  .route-panel.active{ display:block; }
+  .route-track{ position:relative; height:70px; margin-bottom:36px; border-radius:14px; background:var(--asphalt); overflow:hidden; }
+  .route-track svg{ position:absolute; inset:0; width:100%; height:100%; }
+  .route-track-bus{ position:absolute; top:50%; left:8%; width:44px; transform:translateY(-50%); transition: left .5s var(--ease); }
+  .route-track-bus svg{ width:100%; height:auto; aspect-ratio: 340 / 140; }
+  .schedule-table{ border:1px solid var(--line); border-radius:18px; overflow:hidden; background:var(--white); margin-bottom:20px; }
+  .sched-row{ display:grid; grid-template-columns: 1fr 1fr 1fr auto; gap:14px; align-items:center; padding:20px 24px; border-bottom:1px solid var(--line); }
+  .sched-row:last-child{ border-bottom:none; }
+  .sched-row.head{ background:var(--bone-2); }
+  .sched-row .sh{ font-family:var(--mono); font-size:0.66rem; letter-spacing:1px; text-transform:uppercase; color:var(--steel); }
+  .sched-row .sv{ font-family:var(--mono); font-size:0.95rem; font-weight:600; }
+  .status-open{ font-family:var(--mono); font-size:0.65rem; letter-spacing:0.6px; text-transform:uppercase; padding:5px 12px; border-radius:100px; background:#e9f7ee; color:#1a7f43; white-space:nowrap; }
+  @media (max-width:640px){ .sched-row{ grid-template-columns:1fr 1fr; row-gap:10px; } .sched-row .sv:nth-child(3){ grid-column:1/-1; } }
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="index.html" class="brand">
+    <div class="brand-mark"><svg viewBox="0 0 24 24"><path d="M13 2L4.09 12.26a1 1 0 00.91 1.74H11l-2 8 8.91-10.26a1 1 0 00-.91-1.74H13l2-8z"/></svg></div>
+    <div class="brand-name">ZEUS<span> BUS</span></div>
+  </a>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="roles.html">Roles</a>
+    <a href="schedules.html" class="active">Schedules</a>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSeB-g0PqexsdDbRheIVA4l95dSTmZdJZY3OPIa6RiLrSdocnQ/viewform?usp=header" target="_blank" class="btn btn-primary btn-sm nav-cta">Reserve Seat</a>
+  </div>
+  <button class="nav-toggle" aria-label="Menu"><div class="hamburger"><span></span><span></span><span></span></div></button>
+</nav>
+<div class="mobile-panel">
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="roles.html">Roles</a>
+  <a href="schedules.html">Schedules</a>
+  <a href="https://docs.google.com/forms/d/e/1FAIpQLSeB-g0PqexsdDbRheIVA4l95dSTmZdJZY3OPIa6RiLrSdocnQ/viewform?usp=header" target="_blank" class="btn btn-primary btn-block">Reserve Seat →</a>
+</div>
+
+<!-- HERO -->
+<header class="hero" style="min-height:42vh;">
+  <div class="hero-grid"></div>
+  <div class="hero-inner">
+    <span class="chip"><span class="dot"></span>Ready to go?</span>
+    <h1 style="font-size:clamp(2.2rem,5vw,3.6rem);">Where we <em>go.</em></h1>
+    <p class="hero-sub">Three lines, one fixed daily schedule. Pick your route below and check today's timing.</p>
+  </div>
+</header>
+
+<section class="section">
+  <div class="container">
+
+    <div class="route-tabs reveal">
+      <button class="route-tab active" data-route="p-alb7r">LINE · 01 Alb7r</button>
+      <button class="route-tab" data-route="p-alazhar">LINE · 02 Alazhar</button>
+      <button class="route-tab" data-route="p-elmo3lmeen">LINE · 03 Elmo3lmeen</button>
+    </div>
+
+    <div class="route-track reveal">
+      <svg viewBox="0 0 1000 70" preserveAspectRatio="none"><line x1="0" y1="35" x2="1000" y2="35" stroke="rgba(255,255,255,0.15)" stroke-width="2" stroke-dasharray="12 14"/></svg>
+      <div class="route-track-bus">
+        <svg viewBox="0 0 340 140" xmlns="http://www.w3.org/2000/svg">
+          <defs><linearGradient id="rt1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e0182b"/><stop offset="1" stop-color="#6e0a12"/></linearGradient></defs>
+          <path d="M18,108 L18,58 C18,46 27,37 39,36 L255,30 C270,29.5 283,36 292,47 L318,80 C322,85 324,91 324,97 L324,108 Z" fill="url(#rt1)"/>
+          <rect x="34" y="38" width="86" height="26" rx="4" fill="#1c1c20"/>
+          <rect x="128" y="38" width="86" height="26" rx="4" fill="#1c1c20"/>
+          <circle cx="82" cy="110" r="17" fill="#0d0d0d"/><circle cx="262" cy="110" r="17" fill="#0d0d0d"/>
+        </svg>
+      </div>
+    </div>
+
+    <!-- ALB7R -->
+    <div class="route-panel active" id="p-alb7r">
+      <div class="schedule-table reveal">
+        <div class="sched-row head"><span class="sh">Departs</span><span class="sh">Arrives</span><span class="sh">Duration</span><span class="sh">Status</span></div>
+        <div class="sched-row"><span class="sv">08:00 AM</span><span class="sv">09:00 AM</span><span class="sv">1h</span><span class="status-open">Open</span></div>
+        <div class="sched-row"><span class="sv">10:00 AM</span><span class="sv">11:00 AM</span><span class="sv">1h</span><span class="status-open">Open</span></div>
+        <div class="sched-row"><span class="sv">12:00 PM</span><span class="sv">01:00 PM</span><span class="sv">1h</span><span class="status-open">Open</span></div>
+      </div>
+    </div>
+    <!-- ALAZHAR -->
+    <div class="route-panel" id="p-alazhar">
+      <div class="schedule-table reveal">
+        <div class="sched-row head"><span class="sh">Departs</span><span class="sh">Arrives</span><span class="sh">Duration</span><span class="sh">Status</span></div>
+        <div class="sched-row"><span class="sv">08:00 AM</span><span class="sv">09:00 AM</span><span class="sv">1h</span><span class="status-open">Open</span></div>
+        <div class="sched-row"><span class="sv">10:00 AM</span><span class="sv">11:00 AM</span><span class="sv">1h</span><span class="status-open">Open</span></div>
+        <div class="sched-row"><span class="sv">12:00 PM</span><span class="sv">01:00 PM</span><span class="sv">1h</span><span class="status-open">Open</span></div>
+      </div>
+    </div>
+    <!-- ELMO3LMEEN -->
+    <div class="route-panel" id="p-elmo3lmeen">
+      <div class="schedule-table reveal">
+        <div class="sched-row head"><span class="sh">Departs</span><span class="sh">Arrives</span><span class="sh">Duration</span><span class="sh">Status</span></div>
+        <div class="sched-row"><span class="sv">08:00 AM</span><span class="sv">09:00 AM</span><span class="sv">1h</span><span class="status-open">Open</span></div>
+        <div class="sched-row"><span class="sv">10:00 AM</span><span class="sv">11:00 AM</span><span class="sv">1h</span><span class="status-open">Open</span></div>
+        <div class="sched-row"><span class="sv">12:00 PM</span><span class="sv">01:00 PM</span><span class="sv">1h</span><span class="status-open">Open</span></div>
+      </div>
+    </div>
+
+    <p class="reveal" style="font-size:0.85rem; color:var(--steel); margin-bottom:60px;">Schedule is shared across all three lines. Exact pickup stops are confirmed by WhatsApp after booking.</p>
+
+    <!-- EXAM SECTION -->
+    <div class="cta-arrive reveal" style="text-align:left; padding:44px 40px;">
+      <span class="chip" style="margin-bottom:18px;"><span class="dot"></span>Live Updates</span>
+      <h2 style="font-size:1.6rem; margin-bottom:14px;">Midterms & finals schedule</h2>
+      <p style="margin:0 0 22px; max-width:520px;">To best fit your exam blocks, morning departures stay locked while return timing adapts to your test completion hours.</p>
+      <div style="display:flex; flex-direction:column; gap:10px; max-width:440px;">
+        <div style="display:flex; align-items:center; gap:10px; font-size:0.88rem; color:rgba(246,243,239,0.85);">
+          <svg viewBox="0 0 24 24" style="width:16px;height:16px;fill:var(--signal-bright);"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+          Morning lines remain strictly on-time
+        </div>
+        <div style="display:flex; align-items:center; gap:10px; font-size:0.88rem; color:rgba(246,243,239,0.85);">
+          <svg viewBox="0 0 24 24" style="width:16px;height:16px;fill:var(--signal-bright);"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+          Flexible return intervals matching exam windows
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- BOOK CTA -->
+<section class="section on-bone2">
+  <div class="container" style="text-align:center;">
+    <div class="reveal">
+      <span class="eyebrow" style="color:var(--burgundy); justify-content:center;">Secure your seat</span>
+      <h2 style="font-size:clamp(1.8rem,3.2vw,2.4rem); margin:12px 0 26px;">Reserve today, ride tomorrow.</h2>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSeB-g0PqexsdDbRheIVA4l95dSTmZdJZY3OPIa6RiLrSdocnQ/viewform?usp=header" target="_blank" class="btn btn-primary">Book Your Seat →</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-top">
+    <div class="footer-brand">
+      <a href="index.html" class="brand">
+        <div class="brand-mark"><svg viewBox="0 0 24 24"><path d="M13 2L4.09 12.26a1 1 0 00.91 1.74H11l-2 8 8.91-10.26a1 1 0 00-.91-1.74H13l2-8z"/></svg></div>
+        <div class="brand-name">ZEUS<span> BUS</span></div>
+      </a>
+      <p>Smart student transportation for Badr University in Assiut.</p>
+    </div>
+    <div class="footer-cols">
+      <div class="footer-col">
+        <h4>Site</h4>
+        <a href="index.html">Home</a><a href="about.html">About</a><a href="roles.html">Our Roles</a><a href="schedules.html">Schedules</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="tel:01157788949">01157788949</a><a href="tel:01003246428">01003246428</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom"><span>© 2026 Zeus Bus · Assiut, Egypt</span><span>Smart University Transportation</span></div>
+</footer>
+
+<script src="assets/main.js"></script>
+</body>
+</html>
