@@ -17,11 +17,13 @@ document.addEventListener('DOMContentLoaded', () => {
     toggle.addEventListener('click', () => {
       const open = toggle.classList.toggle('open');
       panel.classList.toggle('open', open);
+      toggle.setAttribute('aria-expanded', String(open));
       document.body.style.overflow = open ? 'hidden' : '';
     });
     panel.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
       toggle.classList.remove('open');
       panel.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
       document.body.style.overflow = '';
     }));
   }
@@ -179,11 +181,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* ---- FAQ accordion ---- */
   document.querySelectorAll('.faq-q').forEach(btn => {
+    btn.setAttribute('aria-expanded', 'false');
     btn.addEventListener('click', () => {
       const item = btn.closest('.faq-item');
       const wasOpen = item.classList.contains('open');
-      item.parentElement.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-      if (!wasOpen) item.classList.add('open');
+      item.parentElement.querySelectorAll('.faq-item').forEach(i => {
+        i.classList.remove('open');
+        i.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+      });
+      if (!wasOpen) {
+        item.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+      }
     });
   });
 
@@ -192,9 +201,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const routeBus = document.querySelector('.route-track-bus');
   if (routeTabs.length) {
     routeTabs.forEach((tab, idx) => {
+      tab.setAttribute('aria-selected', tab.classList.contains('active') ? 'true' : 'false');
       tab.addEventListener('click', () => {
-        routeTabs.forEach(t => t.classList.remove('active'));
+        routeTabs.forEach(t => { t.classList.remove('active'); t.setAttribute('aria-selected', 'false'); });
         tab.classList.add('active');
+        tab.setAttribute('aria-selected', 'true');
         document.querySelectorAll('.route-panel').forEach(p => p.classList.remove('active'));
         document.getElementById(tab.dataset.route).classList.add('active');
         if (routeBus && !reduceMotion) {
