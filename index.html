@@ -5,32 +5,85 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Zeus Bus — Student Transportation, Assiut</title>
 <meta name="description" content="Safe, organized, comfortable daily rides for university students across Assiut. Fixed schedules, three lines, one journey.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://zeusbus.com/index.html">
+<meta name="theme-color" content="#141215">
+
+<!-- Open Graph / social sharing -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Zeus Bus">
+<meta property="og:title" content="Zeus Bus — Student Transportation, Assiut">
+<meta property="og:description" content="Safe, organized, comfortable daily rides for university students across Assiut. Fixed schedules, three lines, one journey.">
+<meta property="og:image" content="https://zeusbus.com/assets/logo.png">
+<meta property="og:url" content="https://zeusbus.com/index.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Zeus Bus — Student Transportation, Assiut">
+<meta name="twitter:description" content="Safe, organized, comfortable daily rides for university students across Assiut. Fixed schedules, three lines, one journey.">
+<meta name="twitter:image" content="https://zeusbus.com/assets/logo.png">
+
 <link rel="icon" type="image/png" href="assets/logo.png">
+<link rel="apple-touch-icon" href="assets/logo.png">
+
+<!-- Fonts: preconnect first so DNS/TLS happens in parallel with the
+     stylesheet request instead of only starting once style.css (which
+     used to @import these) has downloaded and parsed. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&family=Cairo:wght@500;600;700;800&family=Tajawal:wght@400;500;700;800&display=swap">
+
 <link rel="stylesheet" href="assets/style.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Zeus Bus",
+  "description": "Safe, organized, comfortable daily student bus transportation across Assiut for Badr University students.",
+  "url": "https://zeusbus.com/index.html",
+  "telephone": "+201157788949",
+  "areaServed": { "@type": "City", "name": "Assiut" },
+  "address": { "@type": "PostalAddress", "addressLocality": "Assiut", "addressCountry": "EG" },
+  "sameAs": [
+    "https://www.instagram.com/zeus.bus",
+    "https://www.facebook.com/share/18EAcwCmEM/",
+    "https://vm.tiktok.com/ZS9N751Kc84ok-0wCuR/"
+  ]
+}
+</script>
 </head>
 <body>
 
+<a href="#main" class="skip-link">Skip to main content</a>
+
 <!-- NAV -->
-<nav class="site-nav">
+<nav class="site-nav" aria-label="Primary">
   <a href="index.html" class="brand">
-    <div class="brand-mark"><svg viewBox="0 0 24 24"><path d="M13 2L4.09 12.26a1 1 0 00.91 1.74H11l-2 8 8.91-10.26a1 1 0 00-.91-1.74H13l2-8z"/></svg></div>
+    <div class="brand-mark"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M13 2L4.09 12.26a1 1 0 00.91 1.74H11l-2 8 8.91-10.26a1 1 0 00-.91-1.74H13l2-8z"/></svg></div>
     <div class="brand-name">ZEUS<span> BUS</span></div>
   </a>
   <div class="nav-links">
-    <a href="index.html" class="active">Home</a>
-    <a href="about.html">About</a>
-    <a href="roles.html">Roles</a>
-    <a href="schedules.html">Schedules</a>
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLSeB-g0PqexsdDbRheIVA4l95dSTmZdJZY3OPIa6RiLrSdocnQ/viewform?usp=header" target="_blank" class="btn btn-primary btn-sm nav-cta">Reserve Seat</a>
+    <a href="index.html" class="active" aria-current="page" data-i18n="nav.home">Home</a>
+    <a href="about.html" data-i18n="nav.about">About</a>
+    <a href="roles.html" data-i18n="nav.roles">Roles</a>
+    <a href="schedules.html" data-i18n="nav.schedules">Schedules</a>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSeB-g0PqexsdDbRheIVA4l95dSTmZdJZY3OPIa6RiLrSdocnQ/viewform?usp=header" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm nav-cta" data-i18n="nav.reserve">Reserve Seat</a>
+    <div class="lang-switch" role="group" aria-label="Language">
+      <button type="button" data-lang="en" aria-pressed="true">EN</button>
+      <button type="button" data-lang="ar" aria-pressed="false">AR</button>
+    </div>
   </div>
-  <button class="nav-toggle" aria-label="Menu"><div class="hamburger"><span></span><span></span><span></span></div></button>
+  <button class="nav-toggle" aria-label="Menu" aria-expanded="false" aria-controls="mobilePanel"><div class="hamburger"><span></span><span></span><span></span></div></button>
 </nav>
-<div class="mobile-panel">
-  <a href="index.html">Home</a>
-  <a href="about.html">About</a>
-  <a href="roles.html">Roles</a>
-  <a href="schedules.html">Schedules</a>
-  <a href="https://docs.google.com/forms/d/e/1FAIpQLSeB-g0PqexsdDbRheIVA4l95dSTmZdJZY3OPIa6RiLrSdocnQ/viewform?usp=header" target="_blank" class="btn btn-primary btn-block">Reserve Seat →</a>
+<div class="mobile-panel" id="mobilePanel">
+  <a href="index.html" aria-current="page" data-i18n="nav.home">Home</a>
+  <a href="about.html" data-i18n="nav.about">About</a>
+  <a href="roles.html" data-i18n="nav.roles">Roles</a>
+  <a href="schedules.html" data-i18n="nav.schedules">Schedules</a>
+  <a href="https://docs.google.com/forms/d/e/1FAIpQLSeB-g0PqexsdDbRheIVA4l95dSTmZdJZY3OPIa6RiLrSdocnQ/viewform?usp=header" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-block" data-i18n="nav.reserveArrow">Reserve Seat →</a>
+  <div class="lang-switch-mobile" role="group" aria-label="Language">
+    <button type="button" data-lang="en" aria-pressed="true">EN</button>
+    <button type="button" data-lang="ar" aria-pressed="false">AR</button>
+  </div>
 </div>
 
 <!-- JOURNEY RAIL — the road the bus travels the whole homepage on -->
@@ -39,20 +92,20 @@
     <div class="journey-rail-lane"></div>
     <div class="journey-rail-progress"></div>
     <div class="journey-rail-stops" id="journeyRailStops">
-      <div class="journey-rail-stop" data-stop="hero"><span class="dot"></span><span class="tag">Hero</span></div>
-      <div class="journey-rail-stop" data-stop="journey"><span class="dot"></span><span class="tag">Journey</span></div>
-      <div class="journey-rail-stop" data-stop="routes"><span class="dot"></span><span class="tag">Routes</span></div>
-      <div class="journey-rail-stop" data-stop="why"><span class="dot"></span><span class="tag">Why</span></div>
-      <div class="journey-rail-stop" data-stop="stats"><span class="dot"></span><span class="tag">Stats</span></div>
-      <div class="journey-rail-stop" data-stop="about"><span class="dot"></span><span class="tag">About</span></div>
-      <div class="journey-rail-stop" data-stop="schedule"><span class="dot"></span><span class="tag">Schedule</span></div>
-      <div class="journey-rail-stop" data-stop="cta"><span class="dot"></span><span class="tag">Book</span></div>
-      <div class="journey-rail-stop" data-stop="faq"><span class="dot"></span><span class="tag">FAQ</span></div>
-      <div class="journey-rail-stop" data-stop="contact"><span class="dot"></span><span class="tag">Contact</span></div>
+      <div class="journey-rail-stop" data-stop="hero"><span class="dot"></span><span class="tag" data-i18n="rail.hero">Hero</span></div>
+      <div class="journey-rail-stop" data-stop="journey"><span class="dot"></span><span class="tag" data-i18n="rail.journey">Journey</span></div>
+      <div class="journey-rail-stop" data-stop="routes"><span class="dot"></span><span class="tag" data-i18n="rail.routes">Routes</span></div>
+      <div class="journey-rail-stop" data-stop="why"><span class="dot"></span><span class="tag" data-i18n="rail.why">Why</span></div>
+      <div class="journey-rail-stop" data-stop="stats"><span class="dot"></span><span class="tag" data-i18n="rail.stats">Stats</span></div>
+      <div class="journey-rail-stop" data-stop="about"><span class="dot"></span><span class="tag" data-i18n="rail.about">About</span></div>
+      <div class="journey-rail-stop" data-stop="schedule"><span class="dot"></span><span class="tag" data-i18n="rail.schedule">Schedule</span></div>
+      <div class="journey-rail-stop" data-stop="cta"><span class="dot"></span><span class="tag" data-i18n="rail.book">Book</span></div>
+      <div class="journey-rail-stop" data-stop="faq"><span class="dot"></span><span class="tag" data-i18n="rail.faq">FAQ</span></div>
+      <div class="journey-rail-stop" data-stop="contact"><span class="dot"></span><span class="tag" data-i18n="rail.contact">Contact</span></div>
     </div>
     <div class="journey-rail-bus">
       <div class="journey-rail-bus-inner">
-        <svg viewBox="0 0 340 140" xmlns="http://www.w3.org/2000/svg">
+        <svg viewBox="0 0 340 140" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
           <defs>
             <linearGradient id="railBusBody" x1="0" y1="0" x2="0" y2="1">
               <stop offset="0" stop-color="#e0182b"/><stop offset="0.55" stop-color="#b5121f"/><stop offset="1" stop-color="#6e0a12"/>
@@ -75,28 +128,30 @@
   </div>
 </div>
 
+<main id="main">
 <!-- HERO -->
 <header class="hero">
   <div class="hero-grid"></div>
   <div class="hero-inner">
-    <span class="chip"><span class="dot"></span>Badr University in Assiut · Est. 2026</span>
-    <h1>Better vibes.<br>Better <em>rides.</em></h1>
-    <p class="hero-sub">Safe, organized, and comfortable daily transportation for university students across Assiut. Built by students, for students.</p>
+    <span class="chip"><span class="dot"></span><span data-i18n="hero.chip.index">Badr University in Assiut · Est. 2026</span></span>
+    <h1 data-i18n-html="hero.title.index">Better vibes.<br>Better <em>rides.</em></h1>
+    <p class="hero-sub" data-i18n="hero.sub.index">Safe, organized, and comfortable daily transportation for university students across Assiut. Built by students, for students.</p>
     <div class="hero-actions">
-      <a href="https://docs.google.com/forms/d/e/1FAIpQLSeB-g0PqexsdDbRheIVA4l95dSTmZdJZY3OPIa6RiLrSdocnQ/viewform?usp=header" target="_blank" class="btn btn-primary">Book Your Seat
-        <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSeB-g0PqexsdDbRheIVA4l95dSTmZdJZY3OPIa6RiLrSdocnQ/viewform?usp=header" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+        <span data-i18n="hero.book">Book Your Seat</span>
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
       </a>
-      <a href="schedules.html" class="btn btn-outline">Explore Routes</a>
+      <a href="schedules.html" class="btn btn-outline" data-i18n="hero.explore">Explore Routes</a>
     </div>
   </div>
 
   <div class="road-scene">
     <div class="bus-glow"></div>
-    <svg viewBox="0 0 1000 210" preserveAspectRatio="none">
+    <svg viewBox="0 0 1000 210" preserveAspectRatio="none" aria-hidden="true" focusable="false">
       <line x1="0" y1="150" x2="1000" y2="150" class="road-line moving"/>
     </svg>
     <div class="bus-unit">
-      <svg class="bus-illustration" viewBox="0 0 340 140" xmlns="http://www.w3.org/2000/svg">
+      <svg class="bus-illustration" viewBox="0 0 340 140" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
         <defs>
           <linearGradient id="busBodyGrad" x1="0" y1="0" x2="0" y2="1">
             <stop offset="0" stop-color="#e0182b"/><stop offset="0.55" stop-color="#b5121f"/><stop offset="1" stop-color="#6e0a12"/>
@@ -124,10 +179,10 @@
   </div>
 
   <div class="container hero-stats">
-    <div class="hero-stat"><b>500+</b><span>Active Students</span></div>
-    <div class="hero-stat"><b>99.4%</b><span>On-Time Rides</span></div>
-    <div class="hero-stat"><b>3</b><span>Main Lines</span></div>
-    <div class="hero-stat"><b>2026</b><span>Founded</span></div>
+    <div class="hero-stat"><b>500+</b><span data-i18n="hero.stat.students">Active Students</span></div>
+    <div class="hero-stat"><b>99.4%</b><span data-i18n="hero.stat.ontime">On-Time Rides</span></div>
+    <div class="hero-stat"><b>3</b><span data-i18n="hero.stat.lines">Main Lines</span></div>
+    <div class="hero-stat"><b>2026</b><span data-i18n="hero.stat.founded">Founded</span></div>
   </div>
 </header>
 
@@ -139,34 +194,34 @@
     <div class="container">
       <div class="stop-marker on-dark reveal"></div>
       <div class="section-head reveal">
-        <span class="eyebrow">The Journey</span>
-        <h2>Four stops between you and class.</h2>
-        <p>From opening the form to stepping off the bus — here's exactly what happens.</p>
+        <span class="eyebrow" data-i18n="journey.eyebrow">The Journey</span>
+        <h2 data-i18n="journey.title">Four stops between you and class.</h2>
+        <p data-i18n="journey.sub">From opening the form to stepping off the bus — here's exactly what happens.</p>
       </div>
       <div class="journey-steps">
         <div class="journey-step reveal" data-i="0">
-          <div class="step-icon"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1112 6.5a2.5 2.5 0 010 5z"/></svg></div>
-          <span class="step-tag">01 · Choose</span>
-          <h3>Choose your route</h3>
-          <p>Pick from Alb7r, Alazhar, or Elmo3lmeen — whichever line runs closest to you.</p>
+          <div class="step-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1112 6.5a2.5 2.5 0 010 5z"/></svg></div>
+          <span class="step-tag" data-i18n="journey.step1.tag">01 · Choose</span>
+          <h3 data-i18n="journey.step1.title">Choose your route</h3>
+          <p data-i18n="journey.step1.desc">Pick from Alb7r, Alazhar, or Elmo3lmeen — whichever line runs closest to you.</p>
         </div>
         <div class="journey-step reveal" data-i="1">
-          <div class="step-icon"><svg viewBox="0 0 24 24"><path d="M19 3h-1V1h-2v2H8V1H6v2H5a2 2 0 00-2 2v16a2 2 0 002 2h14a2 2 0 002-2V5a2 2 0 00-2-2zm0 18H5V8h14v13z"/></svg></div>
-          <span class="step-tag">02 · Reserve</span>
-          <h3>Reserve your seat</h3>
-          <p>Fill out the official form with your route and pickup point. Takes under two minutes.</p>
+          <div class="step-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M19 3h-1V1h-2v2H8V1H6v2H5a2 2 0 00-2 2v16a2 2 0 002 2h14a2 2 0 002-2V5a2 2 0 00-2-2zm0 18H5V8h14v13z"/></svg></div>
+          <span class="step-tag" data-i18n="journey.step2.tag">02 · Reserve</span>
+          <h3 data-i18n="journey.step2.title">Reserve your seat</h3>
+          <p data-i18n="journey.step2.desc">Fill out the official form with your route and pickup point. Takes under two minutes.</p>
         </div>
         <div class="journey-step reveal" data-i="2">
-          <div class="step-icon"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.446-.52.298-.298.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51h-.57c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z"/></svg></div>
-          <span class="step-tag">03 · Confirm</span>
-          <h3>Get confirmed</h3>
-          <p>We reply within 24 hours over WhatsApp with your pickup point and timing.</p>
+          <div class="step-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.446-.52.298-.298.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51h-.57c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z"/></svg></div>
+          <span class="step-tag" data-i18n="journey.step3.tag">03 · Confirm</span>
+          <h3 data-i18n="journey.step3.title">Get confirmed</h3>
+          <p data-i18n="journey.step3.desc">We reply within 24 hours over WhatsApp with your pickup point and timing.</p>
         </div>
         <div class="journey-step reveal" data-i="3">
-          <div class="step-icon"><svg viewBox="0 0 24 24"><path d="M4 16c0 1.1.9 2 2 2h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v10zm2 0V6h12v10H6zm2-2h8v-2H8v2zm0-4h8V8H8v2z"/></svg></div>
-          <span class="step-tag">04 · Ride</span>
-          <h3>Enjoy the ride</h3>
-          <p>Clean, air-conditioned, on time — a calm start to your day on campus.</p>
+          <div class="step-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 16c0 1.1.9 2 2 2h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v10zm2 0V6h12v10H6zm2-2h8v-2H8v2zm0-4h8V8H8v2z"/></svg></div>
+          <span class="step-tag" data-i18n="journey.step4.tag">04 · Ride</span>
+          <h3 data-i18n="journey.step4.title">Enjoy the ride</h3>
+          <p data-i18n="journey.step4.desc">Clean, air-conditioned, on time — a calm start to your day on campus.</p>
         </div>
       </div>
     </div>
@@ -177,32 +232,32 @@
     <div class="container">
       <div class="stop-marker reveal"></div>
       <div class="section-head reveal">
-        <span class="eyebrow" style="color:var(--burgundy)">Active Lines</span>
-        <h2>Three lines. One standard.</h2>
-        <p>Every Zeus Bus line runs the same fixed schedule and the same comfort standard, wherever you board.</p>
+        <span class="eyebrow" style="color:var(--burgundy)" data-i18n="routes.eyebrow">Active Lines</span>
+        <h2 data-i18n="routes.title">Three lines. One standard.</h2>
+        <p data-i18n="routes.sub">Every Zeus Bus line runs the same fixed schedule and the same comfort standard, wherever you board.</p>
       </div>
       <div class="routes-list reveal">
         <div class="route-row">
           <span class="r-code">LINE·01</span>
-          <div class="r-name">Alb7r<small>Northern Assiut corridor</small></div>
-          <span class="r-time">08:00 → 12:00</span>
-          <span class="r-arrow"><svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg></span>
+          <div class="r-name"><span data-i18n="routes.line1.name">Alb7r</span><small data-i18n="routes.line1.desc">Northern Assiut corridor</small></div>
+          <span class="r-time" data-i18n="routes.time">08:00 → 12:00</span>
+          <span class="r-arrow"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg></span>
         </div>
         <div class="route-row">
           <span class="r-code">LINE·02</span>
-          <div class="r-name">Alazhar<small>Central Assiut corridor</small></div>
-          <span class="r-time">08:00 → 12:00</span>
-          <span class="r-arrow"><svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg></span>
+          <div class="r-name"><span data-i18n="routes.line2.name">Alazhar</span><small data-i18n="routes.line2.desc">Central Assiut corridor</small></div>
+          <span class="r-time" data-i18n="routes.time">08:00 → 12:00</span>
+          <span class="r-arrow"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg></span>
         </div>
         <div class="route-row">
           <span class="r-code">LINE·03</span>
-          <div class="r-name">Elmo3lmeen<small>Eastern Assiut corridor</small></div>
-          <span class="r-time">08:00 → 12:00</span>
-          <span class="r-arrow"><svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg></span>
+          <div class="r-name"><span data-i18n="routes.line3.name">Elmo3lmeen</span><small data-i18n="routes.line3.desc">Eastern Assiut corridor</small></div>
+          <span class="r-time" data-i18n="routes.time">08:00 → 12:00</span>
+          <span class="r-arrow"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg></span>
         </div>
       </div>
       <div class="reveal" style="margin-top:28px;">
-        <a href="schedules.html" class="btn btn-outline btn-sm">Full schedule <svg viewBox="0 0 24 24" style="width:13px;height:13px;fill:currentColor;"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg></a>
+        <a href="schedules.html" class="btn btn-outline btn-sm"><span data-i18n="routes.fullSchedule">Full schedule</span> <svg viewBox="0 0 24 24" style="width:13px;height:13px;fill:currentColor;" aria-hidden="true" focusable="false"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg></a>
       </div>
     </div>
   </section>
@@ -212,30 +267,30 @@
     <div class="container">
       <div class="stop-marker reveal"></div>
       <div class="section-head reveal">
-        <span class="eyebrow" style="color:var(--burgundy)">Why Zeus Bus</span>
-        <h2>Built for students, by students.</h2>
-        <p>Everything you need for a smooth, reliable commute — every single day.</p>
+        <span class="eyebrow" style="color:var(--burgundy)" data-i18n="why.eyebrow">Why Zeus Bus</span>
+        <h2 data-i18n="why.title">Built for students, by students.</h2>
+        <p data-i18n="why.sub">Everything you need for a smooth, reliable commute — every single day.</p>
       </div>
       <div class="why-grid">
         <div class="why-card reveal" data-i="0">
-          <div class="why-icon"><svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg></div>
-          <h3>Fixed schedules</h3>
-          <p>Organized pickup points and reliable daily timing so you never miss a class.</p>
+          <div class="why-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg></div>
+          <h3 data-i18n="why.card1.title">Fixed schedules</h3>
+          <p data-i18n="why.card1.desc">Organized pickup points and reliable daily timing so you never miss a class.</p>
         </div>
         <div class="why-card reveal" data-i="1">
-          <div class="why-icon"><svg viewBox="0 0 24 24"><path d="M4 16c0 1.1.9 2 2 2h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v10zm2 0V6h12v10H6zm2-2h8v-2H8v2zm0-4h8V8H8v2z"/></svg></div>
-          <h3>Comfortable buses</h3>
-          <p>Clean, well-maintained rides built to give you a smooth journey every morning.</p>
+          <div class="why-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 16c0 1.1.9 2 2 2h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v10zm2 0V6h12v10H6zm2-2h8v-2H8v2zm0-4h8V8H8v2z"/></svg></div>
+          <h3 data-i18n="why.card2.title">Comfortable buses</h3>
+          <p data-i18n="why.card2.desc">Clean, well-maintained rides built to give you a smooth journey every morning.</p>
         </div>
         <div class="why-card reveal" data-i="2">
-          <div class="why-icon"><svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5C15 14.17 10.33 13 8 13zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg></div>
-          <h3>Student environment</h3>
-          <p>A respectful, focused atmosphere designed specifically for university students.</p>
+          <div class="why-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5C15 14.17 10.33 13 8 13zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg></div>
+          <h3 data-i18n="why.card3.title">Student environment</h3>
+          <p data-i18n="why.card3.desc">A respectful, focused atmosphere designed specifically for university students.</p>
         </div>
         <div class="why-card reveal" data-i="3">
-          <div class="why-icon"><svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/></svg></div>
-          <h3>Fast support</h3>
-          <p>Quick, reliable communication through WhatsApp. We respond fast so you're never left waiting.</p>
+          <div class="why-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/></svg></div>
+          <h3 data-i18n="why.card4.title">Fast support</h3>
+          <p data-i18n="why.card4.desc">Quick, reliable communication through WhatsApp. We respond fast so you're never left waiting.</p>
         </div>
       </div>
     </div>
@@ -246,9 +301,9 @@
     <div class="container">
       <div class="stop-marker on-dark reveal"></div>
       <div class="stats-strip reveal">
-        <div class="stat-cell"><b>500+</b><span>Active Students</span></div>
-        <div class="stat-cell"><b>99.4%</b><span>On-Time Rides</span></div>
-        <div class="stat-cell"><b>3+</b><span>Main Lines</span></div>
+        <div class="stat-cell"><b>500+</b><span data-i18n="stats.students">Active Students</span></div>
+        <div class="stat-cell"><b>99.4%</b><span data-i18n="stats.ontime">On-Time Rides</span></div>
+        <div class="stat-cell"><b>3+</b><span data-i18n="stats.lines">Main Lines</span></div>
       </div>
     </div>
   </section>
@@ -260,7 +315,7 @@
       <div class="split">
         <div class="split-visual reveal">
           <div class="mini-road"></div>
-          <svg class="mini-bus" viewBox="0 0 340 140" xmlns="http://www.w3.org/2000/svg">
+          <svg class="mini-bus" viewBox="0 0 340 140" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
             <defs><linearGradient id="mb1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e0182b"/><stop offset="1" stop-color="#6e0a12"/></linearGradient></defs>
             <path d="M18,108 L18,58 C18,46 27,37 39,36 L255,30 C270,29.5 283,36 292,47 L318,80 C322,85 324,91 324,97 L324,108 Z" fill="url(#mb1)"/>
             <rect x="34" y="38" width="86" height="26" rx="4" fill="#1c1c20"/>
@@ -270,10 +325,10 @@
           </svg>
         </div>
         <div class="reveal">
-          <span class="eyebrow" style="color:var(--burgundy)">Who we are</span>
-          <h2 style="font-size:clamp(1.8rem,3.2vw,2.4rem); margin:12px 0 16px;">Assiut's student-focused transit network.</h2>
-          <p style="color:var(--steel); margin-bottom:28px; max-width:440px;">Zeus Bus was built by students who understood the daily struggle of getting to campus safely and on time. Every route, timing, and standard exists to give you back a stress-free start to your day.</p>
-          <a href="about.html" class="btn btn-outline btn-sm">Our story <svg viewBox="0 0 24 24" style="width:13px;height:13px;fill:currentColor;"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg></a>
+          <span class="eyebrow" style="color:var(--burgundy)" data-i18n="aboutPrev.eyebrow">Who we are</span>
+          <h2 style="font-size:clamp(1.8rem,3.2vw,2.4rem); margin:12px 0 16px;" data-i18n="aboutPrev.title">Assiut's student-focused transit network.</h2>
+          <p style="color:var(--steel); margin-bottom:28px; max-width:440px;" data-i18n="aboutPrev.desc">Zeus Bus was built by students who understood the daily struggle of getting to campus safely and on time. Every route, timing, and standard exists to give you back a stress-free start to your day.</p>
+          <a href="about.html" class="btn btn-outline btn-sm"><span data-i18n="aboutPrev.link">Our story</span> <svg viewBox="0 0 24 24" style="width:13px;height:13px;fill:currentColor;" aria-hidden="true" focusable="false"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg></a>
         </div>
       </div>
     </div>
@@ -285,15 +340,15 @@
       <div class="stop-marker reveal"></div>
       <div class="split">
         <div class="reveal">
-          <span class="eyebrow" style="color:var(--burgundy)">Departures</span>
-          <h2 style="font-size:clamp(1.8rem,3.2vw,2.4rem); margin:12px 0 16px;">Today's timing, at a glance.</h2>
-          <p style="color:var(--steel); margin-bottom:28px; max-width:420px;">Same fixed schedule across all three lines. Return times shift during midterms and finals to match your exam blocks.</p>
-          <a href="schedules.html" class="btn btn-outline btn-sm">View full schedules <svg viewBox="0 0 24 24" style="width:13px;height:13px;fill:currentColor;"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg></a>
+          <span class="eyebrow" style="color:var(--burgundy)" data-i18n="schedPrev.eyebrow">Departures</span>
+          <h2 style="font-size:clamp(1.8rem,3.2vw,2.4rem); margin:12px 0 16px;" data-i18n="schedPrev.title">Today's timing, at a glance.</h2>
+          <p style="color:var(--steel); margin-bottom:28px; max-width:420px;" data-i18n="schedPrev.desc">Same fixed schedule across all three lines. Return times shift during midterms and finals to match your exam blocks.</p>
+          <a href="schedules.html" class="btn btn-outline btn-sm"><span data-i18n="schedPrev.link">View full schedules</span> <svg viewBox="0 0 24 24" style="width:13px;height:13px;fill:currentColor;" aria-hidden="true" focusable="false"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg></a>
         </div>
         <div class="mini-schedule reveal">
-          <div class="row"><span class="name">08:00 → 09:00</span><span class="time">Morning</span><span class="status">Open</span></div>
-          <div class="row"><span class="name">10:00 → 11:00</span><span class="time">Mid-morning</span><span class="status">Open</span></div>
-          <div class="row"><span class="name">12:00 → 13:00</span><span class="time">Midday</span><span class="status">Open</span></div>
+          <div class="row"><span class="name" data-i18n="schedPrev.row1.name">08:00 → 09:00</span><span class="time" data-i18n="schedPrev.row1.time">Morning</span><span class="status" data-i18n="schedPrev.open">Open</span></div>
+          <div class="row"><span class="name" data-i18n="schedPrev.row2.name">10:00 → 11:00</span><span class="time" data-i18n="schedPrev.row2.time">Mid-morning</span><span class="status" data-i18n="schedPrev.open">Open</span></div>
+          <div class="row"><span class="name" data-i18n="schedPrev.row3.name">12:00 → 13:00</span><span class="time" data-i18n="schedPrev.row3.time">Midday</span><span class="status" data-i18n="schedPrev.open">Open</span></div>
         </div>
       </div>
     </div>
@@ -302,12 +357,12 @@
   <!-- CTA ARRIVE -->
   <section class="section" id="cta-arrive" style="padding:100px 6%;">
     <div class="cta-arrive reveal">
-      <span class="chip" style="margin-bottom:20px;"><span class="dot"></span>Limited seats — reserve early</span>
-      <h2>Ready for your next journey?</h2>
-      <p>Reserve your seat through our official form. We'll confirm within 24 hours.</p>
+      <span class="chip" style="margin-bottom:20px;"><span class="dot"></span><span data-i18n="ctaIndex.chip">Limited seats — reserve early</span></span>
+      <h2 data-i18n="ctaIndex.title">Ready for your next journey?</h2>
+      <p data-i18n="ctaIndex.desc">Reserve your seat through our official form. We'll confirm within 24 hours.</p>
       <div class="btn-row">
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeB-g0PqexsdDbRheIVA4l95dSTmZdJZY3OPIa6RiLrSdocnQ/viewform?usp=header" target="_blank" class="btn btn-primary">Book Your Seat →</a>
-        <a href="tel:01157788949" class="btn btn-ghost-dark">Call Us</a>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeB-g0PqexsdDbRheIVA4l95dSTmZdJZY3OPIa6RiLrSdocnQ/viewform?usp=header" target="_blank" rel="noopener noreferrer" class="btn btn-primary" data-i18n="nav.reserveArrow">Book Your Seat →</a>
+        <a href="tel:01157788949" class="btn btn-ghost-dark" data-i18n="ctaIndex.callUs">Call Us</a>
       </div>
     </div>
   </section>
@@ -317,29 +372,29 @@
     <div class="container">
       <div class="stop-marker reveal"></div>
       <div class="section-head reveal">
-        <span class="eyebrow" style="color:var(--burgundy)">Questions</span>
-        <h2>Frequently asked.</h2>
+        <span class="eyebrow" style="color:var(--burgundy)" data-i18n="faq.eyebrow">Questions</span>
+        <h2 data-i18n="faq.title">Frequently asked.</h2>
       </div>
       <div class="faq-wrap reveal">
         <div class="faq-item">
-          <button class="faq-q">How do I book a seat?<span class="faq-plus"></span></button>
-          <div class="faq-a"><p>Click "Book Your Seat" anywhere on the site, fill out the booking form with your route choice, and your spot will be reserved.</p></div>
+          <button class="faq-q" aria-controls="faq1"><span data-i18n="faq.q1">How do I book a seat?</span><span class="faq-plus"></span></button>
+          <div class="faq-a" id="faq1"><p data-i18n="faq.a1">Click "Book Your Seat" anywhere on the site, fill out the booking form with your route choice, and your spot will be reserved.</p></div>
         </div>
         <div class="faq-item">
-          <button class="faq-q">Where are the pickup locations?<span class="faq-plus"></span></button>
-          <div class="faq-a"><p>We currently operate across three main lines in Assiut: Alb7r, Alazhar, and Elmo3lmeen. Specific stops are shared upon booking confirmation.</p></div>
+          <button class="faq-q" aria-controls="faq2"><span data-i18n="faq.q2">Where are the pickup locations?</span><span class="faq-plus"></span></button>
+          <div class="faq-a" id="faq2"><p data-i18n="faq.a2">We currently operate across three main lines in Assiut: Alb7r, Alazhar, and Elmo3lmeen. Specific stops are shared upon booking confirmation.</p></div>
         </div>
         <div class="faq-item">
-          <button class="faq-q">Are the buses air-conditioned?<span class="faq-plus"></span></button>
-          <div class="faq-a"><p>Yes, all Zeus buses are fully air-conditioned and well-maintained for a comfortable, clean, and quiet ride.</p></div>
+          <button class="faq-q" aria-controls="faq3"><span data-i18n="faq.q3">Are the buses air-conditioned?</span><span class="faq-plus"></span></button>
+          <div class="faq-a" id="faq3"><p data-i18n="faq.a3">Yes, all Zeus buses are fully air-conditioned and well-maintained for a comfortable, clean, and quiet ride.</p></div>
         </div>
         <div class="faq-item">
-          <button class="faq-q">What happens if my university schedule changes?<span class="faq-plus"></span></button>
-          <div class="faq-a"><p>During midterms and finals, our return departure times adapt to match your actual test schedules.</p></div>
+          <button class="faq-q" aria-controls="faq4"><span data-i18n="faq.q4">What happens if my university schedule changes?</span><span class="faq-plus"></span></button>
+          <div class="faq-a" id="faq4"><p data-i18n="faq.a4">During midterms and finals, our return departure times adapt to match your actual test schedules.</p></div>
         </div>
         <div class="faq-item">
-          <button class="faq-q">How can I contact support?<span class="faq-plus"></span></button>
-          <div class="faq-a"><p>Reach our team directly through our official social media channels, WhatsApp, or the contact info below.</p></div>
+          <button class="faq-q" aria-controls="faq5"><span data-i18n="faq.q5">How can I contact support?</span><span class="faq-plus"></span></button>
+          <div class="faq-a" id="faq5"><p data-i18n="faq.a5">Reach our team directly through our official social media channels, WhatsApp, or the contact info below.</p></div>
         </div>
       </div>
     </div>
@@ -350,71 +405,73 @@
     <div class="container">
       <div class="stop-marker reveal"></div>
       <div class="section-head reveal">
-        <span class="eyebrow" style="color:var(--burgundy)">Get in Touch</span>
-        <h2>Stay connected.</h2>
-        <p>Routes, schedules, and announcements — all in one place.</p>
+        <span class="eyebrow" style="color:var(--burgundy)" data-i18n="contact.eyebrow">Get in Touch</span>
+        <h2 data-i18n="contact.title">Stay connected.</h2>
+        <p data-i18n="contact.sub">Routes, schedules, and announcements — all in one place.</p>
       </div>
       <div class="contact-grid reveal">
         <a href="tel:01157788949" class="contact-card">
-          <div class="c-icon"><svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.24.37 2.55.57 3.89.57a1 1 0 011 1v3.5a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.25 1.01L6.62 10.79z"/></svg></div>
-          <div class="c-label">Call / Book</div><div class="c-value">01157788949</div>
+          <div class="c-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.24.37 2.55.57 3.89.57a1 1 0 011 1v3.5a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.25 1.01L6.62 10.79z"/></svg></div>
+          <div class="c-label" data-i18n="contact.call.label">Call / Book</div><div class="c-value">01157788949</div>
         </a>
-        <a href="https://chat.whatsapp.com/BAY5HfLAJz6E9TmXSz7i6E" target="_blank" class="contact-card">
-          <div class="c-icon"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM11.999 2C6.477 2 2 6.477 2 12c0 1.821.479 3.53 1.32 5.012L2 22l5.145-1.297A9.96 9.96 0 0011.999 22C17.522 22 22 17.523 22 12S17.522 2 11.999 2z"/></svg></div>
-          <div class="c-label">WhatsApp</div><div class="c-value">Join Group</div>
+        <a href="https://chat.whatsapp.com/BAY5HfLAJz6E9TmXSz7i6E" target="_blank" rel="noopener noreferrer" class="contact-card">
+          <div class="c-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM11.999 2C6.477 2 2 6.477 2 12c0 1.821.479 3.53 1.32 5.012L2 22l5.145-1.297A9.96 9.96 0 0011.999 22C17.522 22 22 17.523 22 12S17.522 2 11.999 2z"/></svg></div>
+          <div class="c-label" data-i18n="contact.whatsapp.label">WhatsApp</div><div class="c-value" data-i18n="contact.whatsapp.value">Join Group</div>
         </a>
-        <a href="https://www.instagram.com/zeus.bus?igsh=dm9jenhndGFpdGQz" target="_blank" class="contact-card">
-          <div class="c-icon"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0 3.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4z"/></svg></div>
-          <div class="c-label">Instagram</div><div class="c-value">@zeus.bus</div>
+        <a href="https://www.instagram.com/zeus.bus?igsh=dm9jenhndGFpdGQz" target="_blank" rel="noopener noreferrer" class="contact-card">
+          <div class="c-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0 3.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4z"/></svg></div>
+          <div class="c-label" data-i18n="contact.instagram.label">Instagram</div><div class="c-value">@zeus.bus</div>
         </a>
-        <a href="https://www.facebook.com/share/18EAcwCmEM/" target="_blank" class="contact-card">
-          <div class="c-icon"><svg viewBox="0 0 24 24"><path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"/></svg></div>
-          <div class="c-label">Facebook</div><div class="c-value">Zeus Bus</div>
+        <a href="https://www.facebook.com/share/18EAcwCmEM/" target="_blank" rel="noopener noreferrer" class="contact-card">
+          <div class="c-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"/></svg></div>
+          <div class="c-label" data-i18n="contact.facebook.label">Facebook</div><div class="c-value" data-i18n="contact.facebook.value">Zeus Bus</div>
         </a>
       </div>
     </div>
   </section>
 
 </div><!-- /route-spine-wrap -->
+</main>
 
 <!-- FOOTER -->
 <footer class="site-footer">
   <div class="footer-top">
     <div class="footer-brand">
       <a href="index.html" class="brand">
-        <div class="brand-mark"><svg viewBox="0 0 24 24"><path d="M13 2L4.09 12.26a1 1 0 00.91 1.74H11l-2 8 8.91-10.26a1 1 0 00-.91-1.74H13l2-8z"/></svg></div>
+        <div class="brand-mark"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M13 2L4.09 12.26a1 1 0 00.91 1.74H11l-2 8 8.91-10.26a1 1 0 00-.91-1.74H13l2-8z"/></svg></div>
         <div class="brand-name">ZEUS<span> BUS</span></div>
       </a>
-      <p>Smart student transportation for Badr University in Assiut. Built by students, for students.</p>
+      <p data-i18n="footer.tagline.index">Smart student transportation for Badr University in Assiut. Built by students, for students.</p>
     </div>
     <div class="footer-cols">
       <div class="footer-col">
-        <h4>Site</h4>
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="roles.html">Our Roles</a>
-        <a href="schedules.html">Schedules</a>
+        <h4 data-i18n="footer.site">Site</h4>
+        <a href="index.html" data-i18n="nav.home">Home</a>
+        <a href="about.html" data-i18n="nav.about">About</a>
+        <a href="roles.html" data-i18n="nav.roles">Our Roles</a>
+        <a href="schedules.html" data-i18n="nav.schedules">Schedules</a>
       </div>
       <div class="footer-col">
-        <h4>Contact</h4>
+        <h4 data-i18n="footer.contact">Contact</h4>
         <a href="tel:01157788949">01157788949</a>
         <a href="tel:01003246428">01003246428</a>
-        <a href="https://chat.whatsapp.com/BAY5HfLAJz6E9TmXSz7i6E" target="_blank">WhatsApp Group</a>
+        <a href="https://chat.whatsapp.com/BAY5HfLAJz6E9TmXSz7i6E" target="_blank" rel="noopener noreferrer" data-i18n="footer.whatsappGroup">WhatsApp Group</a>
       </div>
       <div class="footer-col">
-        <h4>Social</h4>
-        <a href="https://www.instagram.com/zeus.bus?igsh=dm9jenhndGFpdGQz" target="_blank">Instagram</a>
-        <a href="https://vm.tiktok.com/ZS9N751Kc84ok-0wCuR/" target="_blank">TikTok</a>
-        <a href="https://www.facebook.com/share/18EAcwCmEM/" target="_blank">Facebook</a>
+        <h4 data-i18n="footer.social">Social</h4>
+        <a href="https://www.instagram.com/zeus.bus?igsh=dm9jenhndGFpdGQz" target="_blank" rel="noopener noreferrer" data-i18n="contact.instagram.label">Instagram</a>
+        <a href="https://vm.tiktok.com/ZS9N751Kc84ok-0wCuR/" target="_blank" rel="noopener noreferrer">TikTok</a>
+        <a href="https://www.facebook.com/share/18EAcwCmEM/" target="_blank" rel="noopener noreferrer" data-i18n="contact.facebook.label">Facebook</a>
       </div>
     </div>
   </div>
   <div class="footer-bottom">
-    <span>© 2026 Zeus Bus · Assiut, Egypt</span>
-    <span>Smart University Transportation</span>
+    <span data-i18n="footer.bottom.copy">© 2026 Zeus Bus · Assiut, Egypt</span>
+    <span data-i18n="footer.bottom.tag">Smart University Transportation</span>
   </div>
 </footer>
 
-<script src="assets/main.js"></script>
+<script src="assets/main.js" defer></script>
+<script src="assets/i18n.js" defer></script>
 </body>
 </html>
