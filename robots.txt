@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ironjamal.github.io/zeus-bus/sitemap.xml
