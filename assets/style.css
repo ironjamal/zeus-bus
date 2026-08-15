@@ -3,7 +3,10 @@
    Premium mobility-tech aesthetic. Route-line as spine.
    ========================================================= */
 
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap');
+/* Google Fonts are now loaded via <link rel="preconnect"> + <link rel="stylesheet">
+   in the <head> of each page instead of @import, so the browser can fetch them
+   in parallel with this stylesheet instead of discovering them only after this
+   file has downloaded and parsed. */
 
 :root{
   --asphalt: #0c0b0d;
@@ -24,6 +27,8 @@
   --display: 'Space Grotesk', 'Inter', sans-serif;
   --body: 'Inter', sans-serif;
   --mono: 'IBM Plex Mono', monospace;
+  --display-ar: 'Cairo', 'Tajawal', sans-serif;
+  --body-ar: 'Tajawal', 'Cairo', sans-serif;
 
   --nav-h: 76px;
   --ease: cubic-bezier(0.16, 1, 0.3, 1);
@@ -43,6 +48,40 @@ a{ color:inherit; }
 img,svg{ display:block; max-width:100%; }
 button{ font-family:inherit; cursor:pointer; border:none; background:none; color:inherit; }
 ul{ list-style:none; }
+
+/* ---------- Keyboard focus ----------
+   Visible only for keyboard/AT navigation (:focus-visible), so mouse
+   clicks stay clean while Tab-users always get a clear indicator. */
+a:focus-visible,
+button:focus-visible,
+[tabindex]:focus-visible{
+  outline: 2.5px solid var(--signal-bright);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+.on-dark a:focus-visible,
+.on-dark button:focus-visible,
+.hero a:focus-visible,
+.hero button:focus-visible{
+  outline-color: var(--bone);
+}
+
+/* ---------- Skip link ----------
+   Hidden until focused, so keyboard users can jump straight past the
+   nav/journey-rail to the main content. */
+.skip-link{
+  position:absolute;
+  left:12px; top:-48px;
+  background: var(--ink);
+  color: var(--bone);
+  padding:12px 18px;
+  border-radius:8px;
+  font-family: var(--mono);
+  font-size:0.8rem;
+  z-index:1000;
+  transition: top .2s var(--ease);
+}
+.skip-link:focus{ top:12px; }
 
 .container{ max-width: 1180px; margin: 0 auto; padding: 0 6%; }
 
@@ -164,6 +203,29 @@ h1,h2,h3,h4{ font-family: var(--display); font-weight:700; letter-spacing:-0.02e
 .nav-links a.active{ color: var(--bone); background: rgba(255,255,255,0.08); }
 .nav-cta{ margin-left:10px; }
 
+.lang-switch{
+  display:flex; align-items:center; gap:2px;
+  margin-left:10px; padding:3px;
+  border:1px solid var(--line-dark); border-radius:100px;
+  background: rgba(255,255,255,0.04);
+}
+.lang-switch button{
+  font-family: var(--mono); font-size:0.72rem; font-weight:600; letter-spacing:0.5px;
+  padding:6px 12px; border-radius:100px; color: rgba(246,243,239,0.55);
+  transition: background .2s, color .2s;
+}
+.lang-switch button.active{ background: var(--signal); color:#fff; }
+.lang-switch-mobile{
+  display:flex; align-items:center; gap:8px;
+  margin-top:22px; padding:4px; border:1px solid rgba(255,255,255,0.12); border-radius:100px; width:fit-content;
+}
+.lang-switch-mobile button{
+  font-family: var(--mono); font-size:0.78rem; font-weight:600; letter-spacing:0.5px;
+  padding:8px 18px; border-radius:100px; color: rgba(246,243,239,0.55);
+  transition: background .2s, color .2s;
+}
+.lang-switch-mobile button.active{ background: var(--signal); color:#fff; }
+
 .nav-toggle{ display:none; width:38px; height:38px; align-items:center; justify-content:center; }
 .nav-toggle span, .nav-toggle::before, .nav-toggle::after{ content:''; }
 .hamburger{ position:relative; width:20px; height:14px; }
@@ -191,12 +253,6 @@ h1,h2,h3,h4{ font-family: var(--display); font-weight:700; letter-spacing:-0.02e
 
 /* =========================================================
    JOURNEY RAIL — the road + the traveling bus
-   A fixed HUD docked to the viewport edge. Position is driven
-   entirely by --p (0→1, current scroll progress through the
-   Hero → Journey → Routes → Why → Stats → About → Schedule →
-   CTA → FAQ → Contact journey), written once per animation
-   frame by main.js. Everything else — bus position, progress
-   fill, active stop — reads that single variable via CSS.
    ========================================================= */
 .journey-rail{
   position: fixed;
@@ -220,15 +276,12 @@ h1,h2,h3,h4{ font-family: var(--display); font-weight:700; letter-spacing:-0.02e
   box-shadow: 0 14px 40px rgba(0,0,0,0.4), inset 0 0 0 1px rgba(255,255,255,0.06);
 }
 
-/* dashed lane markings — the literal road surface */
 .journey-rail-lane{
   position: absolute; left: 50%; top: 12px; bottom: 12px; width: 2px;
   transform: translateX(-50%);
   background: repeating-linear-gradient(180deg, rgba(255,255,255,0.28) 0 9px, transparent 9px 20px);
 }
 
-/* the segment already traveled — grows/shrinks with --p, this is
-   what makes a "route segment become active/red" as the bus passes */
 .journey-rail-progress{
   position: absolute; left: 50%; top: 12px; width: 4px;
   transform: translateX(-50%);
@@ -266,9 +319,6 @@ h1,h2,h3,h4{ font-family: var(--display); font-weight:700; letter-spacing:-0.02e
   background: var(--signal); color: var(--bone);
 }
 
-/* the bus itself — position comes from --p, orientation faces
-   travel direction; wheel spin + suspension bounce are written
-   directly by the rAF loop for genuinely continuous movement */
 .journey-rail-bus{
   position: absolute; left: 50%; top: calc(var(--p) * 100%);
   width: 84px;
@@ -487,8 +537,6 @@ h1,h2,h3,h4{ font-family: var(--display); font-weight:700; letter-spacing:-0.02e
   .split{ grid-template-columns:1fr; gap:36px; }
   .contact-grid{ grid-template-columns: repeat(2,1fr); }
 
-  /* simplified route for smaller screens: a slim fixed bar pinned
-     to the bottom of the viewport, bus travels left→right along it */
   .journey-rail{
     top: auto; right: 0; bottom: 0; left: 0; transform: none;
     width: 100%; height: 40px;
@@ -539,4 +587,46 @@ h1,h2,h3,h4{ font-family: var(--display); font-weight:700; letter-spacing:-0.02e
   .journey-rail{ transition:none; }
   .journey-rail-bus-inner{ transform:none !important; }
   .journey-rail-bus .wheel{ transform:none !important; }
+}
+
+/* =========================================================
+   ARABIC / RTL SUPPORT
+   Activated when <html dir="rtl">. Mirrors layout, swaps
+   typefaces to Arabic-friendly fonts, and flips direction-
+   sensitive spacing/icons.
+   ========================================================= */
+html[dir="rtl"] body{ font-family: var(--body-ar); }
+html[dir="rtl"] h1, html[dir="rtl"] h2, html[dir="rtl"] h3, html[dir="rtl"] h4{ font-family: var(--display-ar); letter-spacing:0; }
+html[dir="rtl"] .eyebrow, html[dir="rtl"] .chip, html[dir="rtl"] .r-code, html[dir="rtl"] .r-time,
+html[dir="rtl"] .status-open, html[dir="rtl"] .sh, html[dir="rtl"] .sv, html[dir="rtl"] .hero-stat span,
+html[dir="rtl"] .stat-cell span, html[dir="rtl"] .step-tag, html[dir="rtl"] .journey-rail-stop .tag,
+html[dir="rtl"] .footer-col h4, html[dir="rtl"] .footer-bottom span, html[dir="rtl"] .route-tab{ font-family: var(--body-ar); letter-spacing:0; }
+
+html[dir="rtl"] .eyebrow::before{ order:2; }
+html[dir="rtl"] .btn:hover svg{ transform: translateX(-3px); }
+html[dir="rtl"] .btn svg{ transform: scaleX(-1); }
+html[dir="rtl"] .btn:hover svg{ transform: scaleX(-1) translateX(3px); }
+
+html[dir="rtl"] .nav-cta{ margin-left:0; margin-right:10px; }
+html[dir="rtl"] .lang-switch{ margin-left:0; margin-right:10px; }
+
+html[dir="rtl"] .route-row{ grid-template-columns: auto 1fr 100px; }
+html[dir="rtl"] .route-row .r-time{ text-align:left; }
+html[dir="rtl"] .route-row .r-arrow svg{ transform: scaleX(-1); }
+html[dir="rtl"] .route-row:hover .r-arrow{ transform: translateX(-3px); }
+
+html[dir="rtl"] .stat-cell{ border-right:none; border-left:1px solid var(--line-dark); }
+html[dir="rtl"] .stat-cell:last-child{ border-left:none; }
+
+html[dir="rtl"] .journey-rail{ right:auto; left:26px; }
+html[dir="rtl"] .skip-link{ left:auto; right:12px; }
+html[dir="rtl"] .journey-rail-stop .tag{ right:auto; left:58px; transform: translateY(-50%) translateX(-6px); }
+html[dir="rtl"] .journey-rail-stop.current .tag{ transform: translateY(-50%) translateX(0); }
+
+html[dir="rtl"] .faq-q{ text-align:right; }
+html[dir="rtl"] .bus-unit{ transform: scaleX(-1); }
+html[dir="rtl"] .bus-glow{ left:auto; right:6%; }
+
+@media (max-width: 1000px){
+  html[dir="rtl"] .journey-rail{ left:0; right:0; }
 }
